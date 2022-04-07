@@ -1,48 +1,109 @@
+*{
+  margin: 0;
+}
 
-/* *{
+.login-page{
   background:hsla(205,46%,30%,1);
-  background:linear-gradient(90deg,hsla(205,46%,30%,1) 0%, hsla(360,29%,36%,1) 100%);
-  width: 100%;
-  height:100vh;
-} */
+  background:linear-gradient(120deg, hsla(360,29%,36%,1) 0%, hsla(205,46%,30%,1) 100%);
+  padding-top: 5%;
+  padding-bottom: 5%;
 
+}
 .login{
-  margin: auto;
+  margin-left: 10%;
   display: flex;
   flex-direction: row;
   width: 80%;
-
   background:hsla(205,46%,30%,1);
   background:linear-gradient(90deg,hsla(205,46%,30%,1) 0%, hsla(360,29%,36%,1) 100%);
+  border-radius: 20px;
+  border:4px solid black;
+}
+
+.login__right{
+  display:flex;
+  flex-direction: column;
+  width:80%;
+  margin-top: 40px;
+}
+
+.login__heading{
+  margin-top: 20px;
+  font-size: 30px;
+  color: white;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
 }
 
 .login__form{
   display:flex;
   flex-direction: column;
-  width:50%;
+  /* width:80%; */
 
 }
 
-.login_photo{
+/* .login_photo{
 width: 50%;
 
-}
+} */
 
-.login_photo--image{
-  width: 50%;
+.login__photo--image{
+  width: 100%;
+height: 100%;
+border-radius:15px;
 
   }
 
 .login__label{
-  margin-bottom:4rem;
-  margin-top: 4rem;
+  margin-bottom:2rem;
+  margin-top: 2rem;
   font-size: 20px;
+  color: white;
+  font-weight: 700;
+  margin-left: 40px;
+  /* margin-top: 20%; */
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .login__input{
-  width: 100%;
-  border-radius: 2px;
+  width: 80%;
+  border-radius:10px;
   border:1px solid black;
-  height:30px;
+  height:50px;
   background-color:grey ;
+  margin-left: 40px;
+font-size: 20px;
+padding: 5px;
+color: white;
+font-weight: 700;
+}
+
+.login__button{
+  color: white;
+  background-color: blueviolet;
+  margin-top: 3rem;
+  width: 80%;
+  height: 50px;
+  border-radius:10px;
+  font-weight: 700;
+  margin-left: 40px;
+}
+
+.login__para{
+  color: white;
+  font-weight: 700;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-size: 20px;
+  text-align: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.login__link{
+  color:  rgb(39, 3, 72);
+  text-decoration: none;
+  font-weight: 700;
+  margin-left: 10px;
+  font-weight: 40px;
+  text-align: center;
 }
