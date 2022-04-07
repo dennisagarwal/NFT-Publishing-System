@@ -8,7 +8,7 @@
       />
     </div>
 
-    <form class="login__right" [formGroup]="formGroup ">
+    <form class="login__right" [formGroup]="formGroup" (ngSubmit)="loginProcess()">
       <h1 class="login__heading">LOGIN</h1>
       <div class="login__form">
         <label class="login__label">USERNAME</label>
