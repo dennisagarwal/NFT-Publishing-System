@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthServiceService } from '../auth-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,15 +10,17 @@ import { AuthServiceService } from '../auth-service.service';
 })
 export class LoginComponent implements OnInit {
   formGroup!: FormGroup;
-  constructor(private authService: AuthServiceService) {}
+    // Use injector to access any service available within your application
+
+  constructor(private authService: AuthServiceService, private router:Router) {}
 
   ngOnInit(): any {
     this.initForm();
   }
   initForm() {
     this.formGroup = new FormGroup({
-      "username": new FormControl('', [Validators.required]),
-      "password": new FormControl('', [Validators.required]),
+      username: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required]),
     });
   }
   loginProcess() {
@@ -25,8 +28,12 @@ export class LoginComponent implements OnInit {
       this.authService.login(this.formGroup.value).subscribe((result) => {
         if (result.userRole=="manager"||result.userRole=="employer") {
           console.log(result);
-          alert(result);
+          // alert(result);
+          this.router.navigate(['/user'])
         }
+        // else if (result.userRole=="manager"||result.userRole=="employer") {
+
+        // }
       });
     }
   }
