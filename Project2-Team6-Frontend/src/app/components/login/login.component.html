@@ -8,19 +8,21 @@
       />
     </div>
 
-    <form class="login__right" [formGroup]="formGroup" (ngSubmit)="loginProcess()">
+    <!-- <form class="login__right" [formGroup]="loginForm" (ngSubmit)="loginProcess()"> -->
+      <form class="login__right" [formGroup]="loginForm" >
       <h1 class="login__heading">LOGIN</h1>
       <div class="login__form">
-        <label class="login__label">USERNAME</label>
+        <label for= "username" class="login__label">USERNAME</label>
         <input class="login__input" type="text" formControlName="username"/>
-        <label class="login__label">PASSWORD</label>
+        <label for= "password" class="login__label">PASSWORD</label>
         <input class="login__input" type="password" formControlName="password"/>
       </div>
       <div>
-        <button class="login__button" type="submit">LOGIN IN</button>
+        <button class="login__button" type="submit" (click)="loginUser()">LOGIN IN</button>
       </div>
       <p class="login__para">Don't have an account ?<a class="login__link" routerLink="/register">Sign Up</a>
       </p>
     </form>
   </div>
 </div>
+
