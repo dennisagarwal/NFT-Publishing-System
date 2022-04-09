@@ -23,6 +23,8 @@
       <p class="login__para">Don't have an account ?<a class="login__link" routerLink="/register">Sign Up</a>
       </p>
     </form>
+<!--*ngIf error message is truthy if we have a  string that has certain characters, falsy if not-->
+    <p *ngIf="errorMessage" style="color:red;">{{errorMessage}}</p>
   </div>
 </div>
 
