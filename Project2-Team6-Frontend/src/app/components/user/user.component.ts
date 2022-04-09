@@ -33,7 +33,8 @@ export class UserComponent implements OnInit {
       (res: any) => {
         const userInfo: UserInfo = res.body;
 
-        this.username = userInfo.username;
+        this.username = user.username;
+        // this.username = userInfo.username;
       },
       (err) => {
         if (err.status === 401) {
