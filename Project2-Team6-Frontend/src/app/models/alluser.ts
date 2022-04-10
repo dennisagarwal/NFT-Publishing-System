@@ -1,7 +1,6 @@
 export interface AllUser {
   id: number;
-  authorUserName: string;
-  authorFirst: string;
-  authorLast: string;
-  authorEmail: string;
+  username: string;
+  password: string;
+  ethAddress: string;
 }

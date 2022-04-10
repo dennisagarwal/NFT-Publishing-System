@@ -17,7 +17,7 @@ export class LoginService {
   constructor(private client: HttpClient, private router: Router) { }
 
   getUserInfoFromJwt(): Observable<HttpResponse<UserInfo>> {
-    return this.client.get<UserInfo>(`${environment.BACKEND_URL}/reimbursements`, {
+    return this.client.get<UserInfo>(`${environment.BACKEND_URL}/users`, {
       'observe': 'response',
       'headers': {
         'Authorization': `Bearer ${localStorage.getItem('jwt')}`

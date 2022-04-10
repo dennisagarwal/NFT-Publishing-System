@@ -10,10 +10,11 @@ import { UserInfo } from 'src/app/models/user-info';
   styleUrls: ['./user.component.css'],
 })
 export class UserComponent implements OnInit {
+  id:any
   username: any;
-  firstName: any;
-  lastName: any;
-  emailId: any;
+  password: any;
+  ethAddress: any;
+
 
   constructor(private loginService: LoginService, private router: Router) {
 
@@ -23,10 +24,10 @@ export class UserComponent implements OnInit {
     const userInfo = localStorage.getItem('user_info');
     const user: User = JSON.parse(userInfo!);
 
-    this.firstName = user.firstName;
-    this.lastName = user.lastName;
-    this.emailId = user.emailId;
+    this.id = user.id;
     this.username = user.username;
+    this.password = user.password;
+    this.ethAddress = user.ethAddress;
     console.log(user);
 
     this.loginService.getUserInfoFromJwt().subscribe(

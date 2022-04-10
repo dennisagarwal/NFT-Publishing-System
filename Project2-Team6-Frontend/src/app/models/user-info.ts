@@ -1,8 +1,6 @@
 export interface UserInfo {
-  id: number,
-  firstName: string,
-  lastName: string,
-  userRole: string,
-  username: string,
-  emailId: string
+  id: number;
+  username: string;
+  password: string;
+  ethAddress: string;
 }

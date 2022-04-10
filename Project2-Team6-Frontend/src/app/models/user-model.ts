@@ -2,10 +2,8 @@ export interface User {
   id: number;
   username: string;
   password: string;
-  firstName: string;
-  lastName: string;
-  emailId: string;
-  userRole: string;
+  ethAddress: string;
+
 
   // constructor(
   //   id: number,

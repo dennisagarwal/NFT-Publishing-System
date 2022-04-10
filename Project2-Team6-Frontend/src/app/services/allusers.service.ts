@@ -1,10 +1,8 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { Injectable, resolveForwardRef } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { LoginComponent } from '../components/login/login.component';
-import { User } from '../models/user-model';
 import { AllUser } from '../models/alluser';
 
 @Injectable({
@@ -17,7 +15,7 @@ export class AllUsersService {
   constructor(private client: HttpClient, private router: Router) { }
 
   getUserInfoFromJwt(): Observable<HttpResponse<AllUser>> {
-    return this.client.get<AllUser>(`${environment.BACKEND_URL}/reimbursements`, {
+    return this.client.get<AllUser>(`${environment.BACKEND_URL}/users`, {
       'observe': 'response',
       'headers': {
         'Authorization': `Bearer ${localStorage.getItem('jwt')}`
