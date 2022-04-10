@@ -10,6 +10,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserComponent } from './components/user/user.component';
 import { InterceptorService } from './services/interceptor.service';
+import { AllUsersComponent } from './components/all-users/all-users.component';
 
 
 
@@ -20,6 +21,7 @@ import { InterceptorService } from './services/interceptor.service';
     // RegisterComponent,
     // DashboardComponent,
     UserComponent,
+    AllUsersComponent,
   ],
   imports: [
     BrowserModule,
