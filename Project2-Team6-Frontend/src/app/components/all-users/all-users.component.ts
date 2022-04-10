@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AllUser } from 'src/app/models/alluser';
-import { UserInfo } from 'src/app/models/user-info';
-import { AllUsersService } from 'src/app/services/allusers.service';
+// import { AllUser } from 'src/app/models/alluser';
+// import { UserInfo } from 'src/app/models/user-info';
+// import { AllUsersService } from 'src/app/services/allusers.service';
 
 export class alluser{
   constructor(
@@ -22,10 +22,11 @@ export class alluser{
 })
 export class AllUsersComponent implements OnInit {
   // errorMessage!: string;
-  allusers!: AllUser[];
+  allusers!: alluser[];
 
-  constructor(private allUsersService: AllUsersService, private router: Router,
-    private httpClient: HttpClient) {}
+  // constructor(private allUsersService: AllUsersService, private router: Router,
+  //   private httpClient: HttpClient) {}
+    constructor( private httpClient: HttpClient) {}
 
 
   ngOnInit(): void {
