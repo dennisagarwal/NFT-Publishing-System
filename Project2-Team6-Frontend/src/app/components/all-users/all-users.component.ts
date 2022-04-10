@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AllUsers } from 'src/app/models/allusers';
+import { AllUser } from 'src/app/models/alluser';
 import { UserInfo } from 'src/app/models/user-info';
 import { AllUsersService } from 'src/app/services/allusers.service';
 
@@ -15,7 +15,7 @@ import { AllUsersService } from 'src/app/services/allusers.service';
 export class AllUsersComponent implements OnInit {
   errorMessage!: string;
   authorFirst!:string;
-  allUsers!: AllUsers[];
+  allusers!: AllUser[];
   // AllUsers!: { new(body?: BodyInit | null | undefined, init?: ResponseInit | undefined): Response; prototype: Response; error(): Response; redirect(url: string | URL, status?: number | undefined): Response; };
 
   constructor(private allUsersService: AllUsersService, private router: Router,
@@ -23,12 +23,15 @@ export class AllUsersComponent implements OnInit {
 
   ngOnInit(): void {
     // const userInfo = localStorage.getItem('user_info');
-    // const user: User = JSON.parse(userInfo!);
+    // alluser!: AllUser[];
+    // const alluser: AllUser = JSON.parse(alluser);
     this.allUsersService.getUserInfoFromJwt().subscribe(
       (res: any) => {
-        const allusers: AllUsers = res.body;
-        console.log(allusers)
-        this.authorFirst=allusers.authorFirst
+        // const allusers: AllUser = res.body;
+        // console.log(allusers)
+        console.log(res)
+        this.allusers=res.body
+        // this.authorFirst=allusers.authorFirst
                 // this.AllUsers = Response;
         // this.username = user.username;
         // this.username = userInfo.username;
