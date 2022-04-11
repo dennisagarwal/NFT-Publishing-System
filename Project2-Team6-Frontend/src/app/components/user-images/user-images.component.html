@@ -2,20 +2,17 @@
 <div>
   This is userimages
   <div class="container">
-    <table class="table table-bordered table-striped">
 
-      <tbody>
-      <tr *ngFor="let allImage of allImages">
-        <td><span>{{allImage.id}}</span></td>
-        <img src="allImage.image"/>
+      <div class="user">
+      <div class="user__detail"*ngFor="let allImage of allImages">
+        <p class="user__id">image id:<span>{{allImage.id}}</span></p>
+        <img class="user__image" src="allImage.image"/>
         <!-- <img src="http://localhost:9090/users/{{allImage.author.id}}/images/{{allImage.id}}"/> -->
         <!-- <td><span>{{allImage.image}}</span></td> -->
-        <td><span>{{allImage.author.id}}</span></td>
-        <td><span>{{allImage.author.username}}</span></td>
-        <td><span>{{allImage.contactAddress}}</span></td>
-
-      </tr>
-      </tbody>
-    </table>
+        <p class="user__authorId">user id:<span>{{allImage.author.id}}</span></p>
+        <p class="user__authorUsername">user username:<span>{{allImage.author.username}}</span></p>
+        <p class="user__contactAddress">user contact address:<span>{{allImage.contactAddress}}</span></p>
+      </div>
+      </div>
   </div>
 </div>
