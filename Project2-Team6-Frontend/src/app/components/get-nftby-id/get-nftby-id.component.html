@@ -5,5 +5,7 @@
 <p>{{allNFT.name}}</p>
 <p>{{allNFT.tokenId}}</p>
 <p>{{allNFT.tokenUri}}</p>
-<p>{{allNFT.author.id}}</p>
-<p>{{allNFT.author.name}}</p>
+<!-- <p>{{allNFT.author.id}}</p>
+<p>{{allNFT.author.name}}</p> -->
+<img src="{{allNFT.image}}"/>
+<button (click)="onDelete(id);newChange(id)">Delete</button>

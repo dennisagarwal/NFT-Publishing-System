@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 export class allNFT {
   constructor(
@@ -11,7 +12,7 @@ export class allNFT {
     public tokenId: string,
     public owner: string,
     public tokenUri: string,
-    public author: object
+    public image: any
 
   ) {}
 }
@@ -24,8 +25,10 @@ export class allNFT {
 export class GetNFTByIdComponent implements OnInit {
   allNFT!:any;
   id!:number;
+  deleteId!:number;
 
-  constructor(private httpClient: HttpClient, private route:ActivatedRoute) {}
+  constructor(private httpClient: HttpClient, private route:ActivatedRoute,
+    private router:Router) {}
 
   ngOnInit(): void {
     console.log(this.route.snapshot.params['id'])
@@ -41,5 +44,20 @@ export class GetNFTByIdComponent implements OnInit {
         this.allNFT = response;
       });
   }
+
+  onDelete(id:number) {
+    this.httpClient
+      .delete<any>(`http://localhost:9090/nfts/${id}`)
+      .subscribe((response) => {
+        console.log(response)
+       this.ngOnInit()
+
+      });
+  }
+  newChange(id:number): void {
+    this.router.navigateByUrl('nfts/${id}');
+}
+
+
 
 }
