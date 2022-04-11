@@ -27,10 +27,10 @@ export class UserImagesComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.route.snapshot.params['id'])
     this.id= this.route.snapshot.params['id']
-    this.getAllImagesbyUderId(this.id);
+    this.getAllImagesbyUserId(this.id);
   }
 
-  getAllImagesbyUderId(id:number) {
+  getAllImagesbyUserId(id:number) {
 
     this.httpClient
       .get<any>(`http://localhost:9090/users/${id}/images`)
