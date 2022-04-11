@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { User } from 'src/app/models/user-model';
+import { ActivatedRoute } from '@angular/router';
 
 export class allImage{
   constructor(
     public id: number,
-    public image:any,
+    public image:string,
     public author: any,
     public contactAddress:string
   ) { }
@@ -17,19 +19,26 @@ export class allImage{
 })
 export class UserImagesComponent implements OnInit {
   allImages!: allImage[];
+  id!: number;
 
 
-  constructor( private httpClient: HttpClient) {}
+  constructor( private httpClient: HttpClient, private route:ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.getAllImages();
+    console.log(this.route.snapshot.params['id'])
+    this.id= this.route.snapshot.params['id']
+    this.getAllImagesbyUderId(this.id);
   }
 
-  getAllImages() {
+  getAllImagesbyUderId(id:number) {
+
     this.httpClient
-      .get<any>('http://localhost:9090/users/2/images')
+      .get<any>(`http://localhost:9090/users/${id}/images`)
       .subscribe((response) => {
-        // console.log(response)
+      //   for(let i=0;i<response.length;i++){
+      //   console.log(response[i].author.ethAddress)
+      // }
+      console.log(response)
         this.allImages = response;
       });
   }

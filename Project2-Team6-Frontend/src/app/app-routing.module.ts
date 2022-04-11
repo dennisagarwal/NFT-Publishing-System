@@ -11,8 +11,8 @@ const appRoutes: Routes = [
   { path: '', redirectTo: 'login', pathMatch:'full' },
   { path: 'login', component: LoginComponent },
   { path: 'user',component: UserComponent },
-  { path: 'allusers',component: AllUsersComponent },
-  { path:'images',component: UserImagesComponent }
+  { path: 'users',component: AllUsersComponent },
+  { path:'users/:id/images',component: UserImagesComponent }
 
 ];
 

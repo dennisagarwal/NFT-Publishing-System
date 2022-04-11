@@ -7,11 +7,12 @@
       <tbody>
       <tr *ngFor="let allImage of allImages">
         <td><span>{{allImage.id}}</span></td>
-        <td><span>{{allImage.contactAddress}}</span></td>
-        <img src={{allImage.image}}/>
+        <img src="allImage.image"/>
+        <!-- <img src="http://localhost:9090/users/{{allImage.author.id}}/images/{{allImage.id}}"/> -->
         <!-- <td><span>{{allImage.image}}</span></td> -->
         <td><span>{{allImage.author.id}}</span></td>
         <td><span>{{allImage.author.username}}</span></td>
+        <td><span>{{allImage.contactAddress}}</span></td>
 
       </tr>
       </tbody>
