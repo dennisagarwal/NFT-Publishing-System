@@ -1,18 +1,34 @@
-<p>user-images works!</p>
-<div>
-  This is userimages
+<!-- <p>user-images works!</p> -->
+<!-- <div>
+  This is userimages -->
   <div class="container">
+    <nav class="nav">
+      <ul>
+        <a class="nav__link" routerLink="/user">My Profile</a>
+        <a class="nav__link" routerLink="/users">All Profiles</a>
+        <a class="nav__link" routerLink="/login">Login</a>
+        <a class="nav__link" routerLink="/login">Logout</a>
+      </ul>
+    </nav>
 
-      <div class="user">
-      <div class="user__detail"*ngFor="let allImage of allImages">
-        <p class="user__id">image id:<span>{{allImage.id}}</span></p>
-        <img class="user__image" src="allImage.image"/>
+    <div class="user">
+      <div class="user__detail" *ngFor="let allImage of allImages">
+        <p class="user__para">
+          IMAGE ID: <span>{{ allImage.id }}</span>
+        </p >
+        <img class="user__image" src="allImage.image" />
         <!-- <img src="http://localhost:9090/users/{{allImage.author.id}}/images/{{allImage.id}}"/> -->
         <!-- <td><span>{{allImage.image}}</span></td> -->
-        <p class="user__authorId">user id:<span>{{allImage.author.id}}</span></p>
-        <p class="user__authorUsername">user username:<span>{{allImage.author.username}}</span></p>
-        <p class="user__contactAddress">user contact address:<span>{{allImage.contactAddress}}</span></p>
+        <p class="user__para">
+          USER ID : <span>{{ allImage.author.id }}</span>
+        </p>
+        <p class="user__para">
+          USER USERNAME : <span>{{ allImage.author.username }}</span>
+        </p>
+        <p class="user__para">
+          USER CONTACT ADDRESS : <span>{{ allImage.contactAddress }}</span>
+        </p>
       </div>
-      </div>
+    </div>
   </div>
-</div>
+<!-- </div> -->
