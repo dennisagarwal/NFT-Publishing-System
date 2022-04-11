@@ -12,6 +12,7 @@ import { UserComponent } from './components/user/user.component';
 import { InterceptorService } from './services/interceptor.service';
 import { AllUsersComponent } from './components/all-users/all-users.component';
 import { UserImagesComponent } from './components/user-images/user-images.component';
+import { ImagebyidComponent } from './components/imagebyid/imagebyid.component';
 
 
 
@@ -24,6 +25,7 @@ import { UserImagesComponent } from './components/user-images/user-images.compon
     UserComponent,
     AllUsersComponent,
     UserImagesComponent,
+    ImagebyidComponent,
   ],
   imports: [
     BrowserModule,

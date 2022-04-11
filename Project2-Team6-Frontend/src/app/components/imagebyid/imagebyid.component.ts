@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 export class imagebyid{
   constructor(
     public id: number,
-    public image:string,
+    public image:any,
     public author: any,
     public contactAddress:string
   ) { }
