@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from 'src/app/models/user-model';
 import { ActivatedRoute } from '@angular/router';
 
 export class allImage{
