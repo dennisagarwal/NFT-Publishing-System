@@ -1,0 +1,20 @@
+<p>user-images works!</p>
+<div>
+  This is userimages
+  <div class="container">
+    <table class="table table-bordered table-striped">
+
+      <tbody>
+      <tr *ngFor="let allImage of allImages">
+        <td><span>{{allImage.id}}</span></td>
+        <td><span>{{allImage.contactAddress}}</span></td>
+        <img src={{allImage.image}}/>
+        <!-- <td><span>{{allImage.image}}</span></td> -->
+        <td><span>{{allImage.author.id}}</span></td>
+        <td><span>{{allImage.author.username}}</span></td>
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
