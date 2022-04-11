@@ -1,0 +1,8 @@
+.user{
+  width:100%;
+  display: flex;
+}
+
+.user__detail{
+  width:20%
+}

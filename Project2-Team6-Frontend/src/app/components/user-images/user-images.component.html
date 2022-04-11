@@ -1,21 +1,36 @@
-<p>user-images works!</p>
-<div>
-  This is userimages
+<!-- <p>user-images works!</p> -->
+<!-- <div>
+  This is userimages -->
   <div class="container">
-    <table class="table table-bordered table-striped">
 
-      <tbody>
-      <tr *ngFor="let allImage of allImages">
-        <td><span>{{allImage.id}}</span></td>
-        <img src="allImage.image"/>
+    <nav class="nav">
+      <ul>
+        <a class="nav__link" routerLink="/user">My Profile</a>
+        <a class="nav__link" routerLink="/users">All Profiles</a>
+        <a class="nav__link" routerLink="/login">Login</a>
+        <a class="nav__link" routerLink="/login">Logout</a>
+      </ul>
+    </nav>
+
+
+    <div class="user">
+      <div class="user__detail" *ngFor="let allImage of allImages">
+        <p class="user__para">
+          IMAGE ID: <span>{{ allImage.id }}</span>
+        </p >
+        <img class="user__image" src="allImage.image" />
         <!-- <img src="http://localhost:9090/users/{{allImage.author.id}}/images/{{allImage.id}}"/> -->
         <!-- <td><span>{{allImage.image}}</span></td> -->
-        <td><span>{{allImage.author.id}}</span></td>
-        <td><span>{{allImage.author.username}}</span></td>
-        <td><span>{{allImage.contactAddress}}</span></td>
-
-      </tr>
-      </tbody>
-    </table>
+        <p class="user__para">
+          USER ID : <span>{{ allImage.author.id }}</span>
+        </p>
+        <p class="user__para">
+          USER USERNAME : <span>{{ allImage.author.username }}</span>
+        </p>
+        <p class="user__para">
+          USER CONTACT ADDRESS : <span>{{ allImage.contactAddress }}</span>
+        </p>
+      </div>
+    </div>
   </div>
-</div>
+<!-- </div> -->

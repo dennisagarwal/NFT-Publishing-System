@@ -1,23 +1,30 @@
 <div>
-  This is all-userscomponent
   <div class="container">
-    <table class="table table-bordered table-striped">
-      <thead>
-      <tr>
-        <th>ID</th>
-        <th>username</th>
-        <th>password</th>
-        <th>ethAddress</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let alluser of allusers">
-        <td><span>{{alluser.id}}</span></td>
-        <td><span>{{alluser.username}}</span></td>
-        <td><span>{{alluser.password}}</span></td>
-        <td><span>{{alluser.ethAddress}}</span></td>
-      </tr>
-      </tbody>
-    </table>
+    <nav class="nav">
+      <ul>
+        <a class="nav__link" routerLink="/user">My Profile</a>
+        <a class="nav__link" routerLink="/users">All Profiles</a>
+        <a class="nav__link" routerLink="/login">Login</a>
+        <a class="nav__link" routerLink="/login">Logout</a>
+      </ul>
+    </nav>
+    <div class="table table-bordered table-striped">
+      <div>
+      <div class="userHeading">
+        <p class="user__detailHeading">ID</p>
+        <p class="user__detailHeading">USERNAME</p>
+        <p class="user__detailHeading">PASSWORD</p>
+        <p class="user__detailHeading">ETH ADDRESS</p>
+      </div>
+      </div>
+      <div>
+      <div class="user" *ngFor="let alluser of allusers">
+        <p class="user__detail">{{alluser.id}}</p>
+        <p class="user__detail">{{alluser.username}}</p>
+        <p class="user__detail">{{alluser.password}}</p>
+        <p class="user__detail">{{alluser.ethAddress}}</p>
+      </div>
+      </div>
+    </div>
   </div>
 </div>
