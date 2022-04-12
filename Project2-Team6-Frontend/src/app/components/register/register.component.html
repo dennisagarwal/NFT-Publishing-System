@@ -22,8 +22,10 @@
         <button class="register__button" (click)="userRegistrationProcess(registerUsername.value,registerPassword.value)">SIGN UP</button>
         <!--*ngIf error message is truthy if we have a  string that has certain characters, falsy if not-->
         <p style="color: red; text-align:center;">{{userRegMsg}}</p>
+      
+
       </div>
-      <p class="register__para">Already have an account ?<a class="register__link" routerLink="/">Login</a>
+      <p class="register__para">Click here to <a class="login__link" routerLink="login">Login</a>
       </p>
     </div>
   </div>

@@ -6,6 +6,7 @@ import { UserComponent } from './components/user/user.component';
 import { AllUsersComponent } from './components/all-users/all-users.component';
 import { UserImagesComponent } from './components/user-images/user-images.component';
 import {ImagebyidComponent} from './components/imagebyid/imagebyid.component';
+import {RegisterComponent} from './components/register/register.component';
 
 
 const appRoutes: Routes = [
@@ -14,7 +15,8 @@ const appRoutes: Routes = [
   { path: 'user',component: UserComponent },
   { path: 'users',component: AllUsersComponent },
   { path:'users/:id/images',component: UserImagesComponent },
-  { path:'users/:id1/images/:id2',component: ImagebyidComponent }
+  { path:'users/:id1/images/:id2',component: ImagebyidComponent },
+  { path:'register',component:RegisterComponent}
 
 ];
 
