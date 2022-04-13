@@ -12,16 +12,20 @@
       <h1 class="register__heading">SIGN UP</h1>
       <div class="register__form">
         <label class="register__label">USERNAME</label>
-        <input class="register__input" type="text" />
+        <input class="register__input" type="text" id="registerUsername" #registerUsername />
         <label class="register__label">PASSWORD</label>
-        <input class="register__input" type="password" />
+        <input class="register__input" type="password" id="registerPassword" #registerPassword />
         <!-- <label class="register__label">EMAIL</label>
         <input class="register__input" type="text" /> -->
           </div>
       <div>
-        <button class="register__button">SIGN UP</button>
+        <button class="register__button" (click)="userRegistrationProcess(registerUsername.value,registerPassword.value)">SIGN UP</button>
+        <!--*ngIf error message is truthy if we have a  string that has certain characters, falsy if not-->
+        <p style="color: red; text-align:center;">{{userRegMsg}}</p>
+      
+
       </div>
-      <p class="register__para">Already have an account ?<a class="register__link" routerLink="/">Login</a>
+      <p class="register__para">Click here to <a class="login__link" routerLink="login">Login</a>
       </p>
     </div>
   </div>
