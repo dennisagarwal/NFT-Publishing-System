@@ -1,0 +1,3 @@
+[submodule "NFT-Publishing-System-Backend"]
+	path = NFT-Publishing-System-Backend
+	url = git@github.com:polydin/NFT-Publishing-System-Backend.git
