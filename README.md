@@ -11,12 +11,21 @@ This is the full-stack application for an NFT publishing system
 
 
 ## Getting Started
+To run this app, run the following in bash
 ```
-git clone https://github.com/dennisagarwal/NFT-Publishing-System.git
-cd NFT-Publishing-System
-go to localhost:4200/
-npm start or ng serve in your terminal
+git clone --recursive https://github.com/dennisagarwal/NFT-Publishing-System.git
+cd NFT-Publishing-System-Backend
+./gradlew build
+./gradlew run
 ```
+Open a new bash in the root directory the project and run
+```
+cd NFT-Publishing-System-Frontend
+npm install
+ng serve --open
+```
+
+Have fun!
 
 ## NFT-Publishing-System-Backend
 
@@ -35,15 +44,3 @@ This is the backend application for an NFT publishing application
 - `GET /nfts/{nft_id}` - returns specific nft object
 - `DELETE /nfts/{nft_id}` - deletes nft object from database, note that this does not delete the NFT from the blockchain, it is permanently stored there and we are just deleting our app's reference to it
 - `PATCH /nfts/{nft_id}` - partially update nft object, used to update owner
-
-Currently in development..
-To run,
-
-```
-git clone https://github.com/polydin/NFT-Publishing-System-Backend.git
-cd NFT-Publishing-System-Backend
-./gradlew build
-./gradlew run
-```
-
-Note: postgresql should be set up and running on localhost:5432
