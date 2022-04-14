@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { NFT } from '../models/nft';
 
+// TODO combine postNFT and getNFT logic into single service file named nft.service.ts
 @Injectable({
   providedIn: 'root',
 })
