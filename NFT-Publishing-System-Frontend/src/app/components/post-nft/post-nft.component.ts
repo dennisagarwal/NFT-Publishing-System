@@ -11,10 +11,8 @@ import { PostNFTServiceService } from 'src/app/services/post-nftservice.service'
 })
 export class PostNftComponent implements OnInit {
   // dialog: any;
-NFTForm!:FormGroup;
-errorMessage!: string;
-
-
+  NFTForm!:FormGroup;
+  errorMessage!: string;
 
   constructor(private fb : FormBuilder,private httpClient:HttpClient,
     private postNFTService:PostNFTServiceService) { }
@@ -35,11 +33,15 @@ errorMessage!: string;
     });
   }
 
+  onSubmit() {
+    const nft = this.NFTForm.value;
 
-onSubmit(){
-  const nft = this.NFTForm.value;
-
-  this.postNFTService.authenicateNFT(nft.contactAddress,nft.imageId,nft.image,nft.authorId);
-}
+    this.postNFTService.authenicateNFT(
+      nft.contactAddress, 
+      nft.imageId,
+      nft.image,
+      nft.authorId
+    );
+  }
 
 }
