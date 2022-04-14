@@ -2,6 +2,16 @@
 
 This is the full-stack application for an NFT publishing system
 
+## Features
+
+## To-Dos
+- Include logging in logback.xml and write logging logic into backend
+- Integrations test using MockMvc 
+- Finish UI/UX for users gallery
+- Code for deploying ethereum contracts to Ropsten (george)
+- Deploy backend to GCP instance using Docker image
+- Deploy frontend to Firebase
+- Set up Jenkins pipeline to automate building and deployment of backend (build, create docker image, deploy)
 
 ## Tech Stack
 - Spring Framework
