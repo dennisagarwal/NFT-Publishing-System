@@ -11,35 +11,42 @@ import { NFT } from '../models/nft';
   providedIn: 'root',
 })
 export class PostNFTServiceService {
-  // loginErrorSubject: Subject<string> = new Subject<string>();
-  postNFTErrorSubject:Subject<string> = new Subject<string>();
+  postNFTErrorSubject: Subject<string> = new Subject<string>();
 
   constructor(private client: HttpClient, private router: Router) {}
 
-  // getUserInfoFromJwt(): Observable<HttpResponse<UserInfo>> {
-  //   return this.client.get<UserInfo>(`${environment.BACKEND_URL}/users`, {
-  //     observe: 'response',
-  //     headers: {
-  //       Authorization: `Bearer ${localStorage.getItem('jwt')}`,
-  //     },
-  //   });
-  // }
+  nftObject = {
+    contractAddress: 'gfsssssddrdddfgddfgdf',
+    image: {
+      id: 10,
+      image: 'ffffffffffffffffffffffffffffffffffffffff',
+      author: {
+        id: 251
+      },
+    },
+  };
 
   authenicateNFT(
-    contractAddress: string,
-    imageId: number,
-    image: any,
-    authorId: number
+    _contractAddress: string,
+    _imageId: any,
+    _image: any,
+    _authorId: any
   ) {
+
     this.client
       .post<NFT>(
         `${environment.BACKEND_URL}/nfts`,
         {
-          contractAddress: contractAddress,
-          imageId: imageId,
-          image: image,
-          authorId:  authorId
+          contractAddress:  _contractAddress,
+          image: {
+            id: _imageId,
+            image: _image,
+            author: {
+              id:  _authorId
+            },
+          },
         },
+
         {
           observe: 'response', // This option tells httpClient to give us the entire HttpResponse instead of just the response body,
           // which is what it would have done by default
@@ -56,7 +63,8 @@ export class PostNFTServiceService {
         },
         (err) => {
           const errorMessage = err.error;
-          this.postNFTErrorSubject.next(errorMessage); // Publish information to the loginErrorSubject
+          console.log(err);
+          // this.postNFTErrorSubject.next(errorMessage); // Publish information to the loginErrorSubject
         }
       );
   }
