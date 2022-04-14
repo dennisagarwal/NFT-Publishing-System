@@ -14,6 +14,7 @@ import { AllUsersComponent } from './components/all-users/all-users.component';
 import { UserImagesComponent } from './components/user-images/user-images.component';
 import { ImagebyidComponent } from './components/imagebyid/imagebyid.component';
 import { GetNFTByIdComponent } from './components/get-nftby-id/get-nftby-id.component';
+import { PostNftComponent } from './components/post-nft/post-nft.component';
 
 
 
@@ -28,6 +29,7 @@ import { GetNFTByIdComponent } from './components/get-nftby-id/get-nftby-id.comp
     UserImagesComponent,
     ImagebyidComponent,
     GetNFTByIdComponent,
+    PostNftComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,44 @@
+<p>post-nft works!</p>
+<form [formGroup]="NFTForm" >
+  <!-- <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate></form> -->
+  <div class="form-group">
+
+
+  <div >
+    <label for="contractAddress">contract address</label>
+  </div>
+  <div class="input-group">
+    <input
+      id="contractAddress"
+      name="contractAddress"
+      formControlName="contractAddress"
+
+    />
+  </div>
+
+  <div >
+    <label for="imageId">ImageId</label>
+  </div>
+  <div class="input-group">
+    <input id="imageId" name="imageId" formControlName="imageId"  />
+  </div>
+
+  <div >
+    <label for="owner">image</label>
+  </div>
+  <div class="input-group">
+    <input id="image" name="image" formControlName="image"  />
+  </div>
+
+  <div>
+    <label for="authorId">author id</label>
+  </div>
+  <div class="input-group">
+    <input id="authorId" name="authorId" formControlName="authorId"  />
+  </div>
+
+  <button type="submit" (click)="onSubmit()">Save</button>
+
+</div>
+</form>
+

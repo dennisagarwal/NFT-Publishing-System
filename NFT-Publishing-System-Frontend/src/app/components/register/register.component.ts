@@ -13,7 +13,7 @@ import { UserRegistrationServiceService } from '../../services/user-registration
 export class RegisterComponent implements OnInit {
   userRegMsg!: string;
   constructor(private userRegistration: UserRegistrationServiceService) {
-    
+
   }
 
   ngOnInit(): void {
