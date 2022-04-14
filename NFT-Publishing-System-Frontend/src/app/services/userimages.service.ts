@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { HttpClient, HttpHeaders, HttpOptions } from '@angular/common/http'
 import { initializeApp } from 'firebase/app';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
@@ -38,4 +38,19 @@ export class UserimagesService {
       console.error('Upload failed:', error);
     });
   } 
+
+  public getImagesOfUser(userId: number): Observable<Image[]> {
+    return this.http.get<Image[]>(
+      // TODO replace this with env var
+      "http://localhost:9090/users/" + userId + "images"
+    )
+  }
+
+  public getImageById(userId: number, imageId: number): Observable<Image> {
+    return this.http.get<Image>(
+      // TODO replace with env var
+      "http://localhost:9090/users/" + userId + "/images/" + imageId
+    );
+  }
+
 }
