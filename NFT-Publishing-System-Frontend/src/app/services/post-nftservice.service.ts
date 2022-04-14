@@ -15,21 +15,11 @@ export class PostNFTServiceService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  nftObject = {
-    contractAddress: 'gfsssssddrdddfgddfgdf',
-    image: {
-      id: 10,
-      image: 'ffffffffffffffffffffffffffffffffffffffff',
-      author: {
-        id: 251
-      },
-    },
-  };
-
   jwt = localStorage.getItem('jwt');
+
   httpOptions = {
     headers: new HttpHeaders({
-	    'Authorization': 'Bearer' + this.jwt
+	    'Authorization': 'Bearer ' + this.jwt
     })
   };
 
@@ -38,6 +28,7 @@ export class PostNFTServiceService {
     		_imageId: any,
     		_image: any,
     		_authorId: any) {
+			console.log(this.httpOptions);
     this.http.post<NFT>(`${environment.BACKEND_URL}/nfts`, 
 	{
           contractAddress:  _contractAddress,
@@ -48,7 +39,8 @@ export class PostNFTServiceService {
               id:  _authorId
             },
           },
-        }).subscribe(
+        },
+	  this.httpOptions).subscribe(
         (res) => {
           this.router.navigate(['nft']);
         },
