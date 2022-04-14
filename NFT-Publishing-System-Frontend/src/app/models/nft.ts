@@ -1,14 +1,14 @@
-// export interface NFT {
-//   contractAddress: any;
-//   imageId: any;
-//   image: any;
-//   authorId: any;
-// }
-
 export interface NFT {
-  contractAddress: any;
-  imageId: any;
-  image: any;
-  authorId: any;
+  name: string;
+  symbol: string;
+  tokenId: number;
+  contractAddress: string;
+  tokenUri: string;
+  image: {
+    id: number;
+    author: {
+      id: number;
+    }
+  }
 }
 

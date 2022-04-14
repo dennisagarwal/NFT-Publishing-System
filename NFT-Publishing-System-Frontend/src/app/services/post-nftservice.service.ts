@@ -23,32 +23,20 @@ export class PostNFTServiceService {
     })
   };
 
-  // TODO find NFT model and check structure
-  authenicateNFT(_contractAddress: string,
-    		_imageId: any,
-    		_image: any,
-    		_authorId: any) {
-			console.log(this.httpOptions);
-    this.http.post<NFT>(`${environment.BACKEND_URL}/nfts`, 
-	{
-          contractAddress:  _contractAddress,
-          image: {
-            id: _imageId,
-            image: _image,
-            author: {
-              id:  _authorId
-            },
-          },
-        },
-	  this.httpOptions).subscribe(
-        (res) => {
-          this.router.navigate(['nft']);
-        },
-        (err) => {
-          const errorMessage = err.error;
-          console.log(err);
-          // this.postNFTErrorSubject.next(errorMessage); // Publish information to the loginErrorSubject
-        }
-      );
+  authenticateNFT(nft: NFT) {
+    this.http.post<NFT>(
+      `${environment.BACKEND_URL}/nfts`, 
+      nft, 
+      this.httpOptions
+    ).subscribe(
+      (res) => {
+        this.router.navigate(['nft']);
+      },
+      (err) => {
+        const errorMessage = err.error;
+        console.log(err);
+        // this.postNFTErrorSubject.next(errorMessage); // Publish information to the loginErrorSubject
+      }
+    );
   }
 }
