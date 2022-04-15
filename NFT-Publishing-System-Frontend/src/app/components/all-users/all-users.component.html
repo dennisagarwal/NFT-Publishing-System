@@ -2,7 +2,7 @@
     <div class="allUserCard" fxLayoutAlign="space-evenly" fxLayout="row wrap"   >
       <mat-card class="allUserProfile  mat-elevation-z12" *ngFor="let alluser of allusers;let i = index" >
         <mat-card-header class="allUserProfile__header">
-          <img  mat-card-avatar src="{{  randomUsers[i].fakeImage }}" />
+          <img  mat-card-avatar src="{{randomUsers[i].fakeImage }}" />
 
           <mat-card-title>User Name :{{ alluser.username }}</mat-card-title>
         </mat-card-header>
