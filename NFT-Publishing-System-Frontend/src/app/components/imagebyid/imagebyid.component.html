@@ -1,17 +1,12 @@
-<div>
-  This is imagebyid
+<app-navbar></app-navbar>
   <div class="container">
     <table class="table table-bordered table-striped">
       <tbody>
-        <td><span>{{imagebyid.id}}</span></td>
-        <img src="imagebyid.image"/>
-        <!-- <img src="http://localhost:9090/users/{{imagebyid.author.id}}/images/{{imagebyid.id}}"/> -->
-        <!-- <td><span>{{allImage.image}}</span></td> -->
-        <td><span>{{imagebyid.author.id}}</span></td>
-        <td><span>{{imagebyid.author.username}}</span></td>
-        <td><span>{{imagebyid.contactAddress}}</span></td>
+        <td><span>{{image.id}}</span></td>
+        <img src="{{image.imageURL}}" alt="not found"/>
+        <td><span>{{image.author.id}}</span></td>
 
       </tbody>
     </table>
   </div>
-</div>
+

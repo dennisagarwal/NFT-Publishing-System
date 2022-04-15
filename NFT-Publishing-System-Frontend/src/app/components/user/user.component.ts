@@ -3,6 +3,9 @@ import { User } from 'src/app/models/user-model';
 import { LoginService } from 'src/app/services/login.service';
 import { Router } from '@angular/router';
 import { UserInfo } from 'src/app/models/user-info';
+import { NavbarComponent } from '../navbar/navbar.component';
+import { formatDate } from '@angular/common';
+import {faker}  from '@faker-js/faker';
 
 @Component({
   selector: 'app-user',
@@ -10,14 +13,18 @@ import { UserInfo } from 'src/app/models/user-info';
   styleUrls: ['./user.component.css'],
 })
 export class UserComponent implements OnInit {
-  id:any
-  username: any;
+  id!: number;
+  username!: string;
   password: any;
   ethAddress: any;
-
+  myDate!: any;
+  fakeImage!:string;
+  fakePhone!:string;
 
   constructor(private loginService: LoginService, private router: Router) {
-
+    this.myDate = formatDate(new Date(), 'yyyy/MM/dd  hh:mm', 'en');
+    this.fakeImage = faker.image.avatar();
+    this.fakePhone =faker.phone.phoneNumber()
   }
 
   ngOnInit(): void {

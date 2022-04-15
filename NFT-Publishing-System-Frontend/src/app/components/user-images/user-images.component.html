@@ -1,7 +1,5 @@
-<!-- <p>user-images works!</p> -->
-<!-- <div>
-  This is userimages -->
-  <div class="container">
+<app-navbar></app-navbar>
+<div class="container">
 
     <nav class="nav">
       <ul>
@@ -14,23 +12,16 @@
 
 
     <div class="user">
-      <div class="user__detail" *ngFor="let allImage of allImages">
+      <div class="user__detail" *ngFor="let image of images">
         <p class="user__para">
-          IMAGE ID: <span>{{ allImage.id }}</span>
+          IMAGE ID: <span>{{ image.id }}</span>
         </p >
-        <img class="user__image" src="allImage.image" />
-        <!-- <img src="http://localhost:9090/users/{{allImage.author.id}}/images/{{allImage.id}}"/> -->
-        <!-- <td><span>{{allImage.image}}</span></td> -->
+        <img class="user__image" src="{{image.imageURL}}" />
         <p class="user__para">
-          USER ID : <span>{{ allImage.author.id }}</span>
+          USER ID : <span>{{ image.author.id }}</span>
         </p>
-        <p class="user__para">
-          USER USERNAME : <span>{{ allImage.author.username }}</span>
-        </p>
-        <p class="user__para">
-          USER CONTACT ADDRESS : <span>{{ allImage.contactAddress }}</span>
-        </p>
+
       </div>
     </div>
   </div>
-<!-- </div> -->
+

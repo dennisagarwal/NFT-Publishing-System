@@ -1,15 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { UserimagesService } from 'src/app/services/userimages.service';
+import { Image } from 'src/app/models/image';
 
-export class allImage{
-  constructor(
-    public id: number,
-    public image:string,
-    public author: any,
-    public contactAddress:string
-  ) { }
-}
 
 @Component({
   selector: 'app-user-images',
@@ -17,29 +11,21 @@ export class allImage{
   styleUrls: ['./user-images.component.css']
 })
 export class UserImagesComponent implements OnInit {
-  allImages!: allImage[];
   id!: number;
+ images!: Image[];
 
 
-  constructor( private httpClient: HttpClient, private route:ActivatedRoute) {}
+  constructor( private httpClient: HttpClient,
+     private route:ActivatedRoute,
+     private userImageService:UserimagesService) {}
 
   ngOnInit(): void {
-    console.log(this.route.snapshot.params['id'])
     this.id= this.route.snapshot.params['id']
-    this.getAllImagesbyUserId(this.id);
-  }
-
-  getAllImagesbyUserId(id:number) {
-
-    this.httpClient
-      .get<any>(`http://localhost:9090/users/${id}/images`)
-      .subscribe((response) => {
-      //   for(let i=0;i<response.length;i++){
-      //   console.log(response[i].author.ethAddress)
-      // }
+    this.userImageService.getImagesOfUser(this.id).subscribe((response)=>{
       console.log(response)
-        this.allImages = response;
-      });
+        this.images = response;
+    })
   }
 
 }
+
