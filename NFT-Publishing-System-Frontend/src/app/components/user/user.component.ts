@@ -3,6 +3,7 @@ import { User } from 'src/app/models/user-model';
 import { LoginService } from 'src/app/services/login.service';
 import { Router } from '@angular/router';
 import { UserInfo } from 'src/app/models/user-info';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-user',
