@@ -49,7 +49,7 @@ export class UserimagesService {
   }
 
   public getImageById(
-	  userId: number, 
+	  userId: number,
 	  imageId: number
   ): Observable<Image> {
     return this.http.get<Image>(
@@ -78,17 +78,17 @@ export class UserimagesService {
      string, returns on observable which on success will subscribe
      to the posted image returned by backend
 
-     NOTE: the image files are stored in global folder in 
+     NOTE: the image files are stored in global folder in
            Firebase, so the name MUST be unique or it will write over
   */
   public storeImage(
-	  userId: string, 
+	  userId: string,
 	  imageFile: File,
- 	  auth: string, 
+ 	  auth: string,
   ): Observable<Image> {
     const imageRef = ref(storage, imageFile.name);
-    
-    uploadBytes(imageRef, image).then(snapshot => {
+
+    uploadBytes(imageRef, imageFile).then(snapshot => {
       getDownloadURL(imageRef).then(url => {
 	const image: Image = {
 	  "id": 0,
@@ -98,9 +98,10 @@ export class UserimagesService {
 	  },
 	};
 
-        return postImage(image, auth);  
+        return this.postImage(image, auth);
       });
-    }); 
+    });
+
   }
 
 }
