@@ -78,11 +78,7 @@ export class UserimagesService {
     
     uploadBytes(imageRef, imageFile).then(snapshot => {
       console.log('File uploaded'); 
-    }).catch(err => {
-      console.log(err);
-    })
-    
-    getDownloadURL(imageRef).then(url => {
+      getDownloadURL(imageRef).then(url => {
 	const image: Image = {
 	  "id": 0,
 	  "imageURL": url,
@@ -92,9 +88,10 @@ export class UserimagesService {
 	};
 
         return this.postImage(image, auth);  
-    }).catch(err => {
+      }).catch(err => {
 	console.log(err);
-    })
+      });
+    });
     return new Observable();
   }
 
