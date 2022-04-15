@@ -61,12 +61,16 @@ export class UserimagesService {
   public postImage(
 	  userId: number, 
 	  image: Image,
-  	  httpOptions: HttpOptions	  
+	  auth: string
   ): Observable<Image> {
     return this.http.post<Image>(
       "http://localhost:9090/users/" + userId + "/images",
       image,
-      httpOptions 
+      {
+        headers: new HttpHeaders({
+          "Authorization": auth,
+	}),
+      }
     )
   }
 
