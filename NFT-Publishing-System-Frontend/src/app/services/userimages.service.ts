@@ -26,21 +26,6 @@ export class UserimagesService {
 
   constructor(private http: HttpClient) {}
 
-  // To generate image name, use username and specific name of file
-  // combined to create unique filename
-  public uploadImage(image: File) {
-    const imageRef = ref(storage, image.name);
-
-    uploadBytes(imageRef, image).then((snapshot) => {
-      // console.log('Upload', snapshot.totalBytes, 'bytes.');
-      getDownloadURL(snapshot.ref).then(url => {
-        console.log('File available at', url);
-      });
-    }).catch(error => {
-      console.error('Upload failed:', error);
-    });
-  }
-
   public getImagesOfUser(userId: number): Observable<Image[]> {
     return this.http.get<Image[]>(
       // TODO replace this with env var
@@ -80,16 +65,24 @@ export class UserimagesService {
 
      NOTE: the image files are stored in global folder in 
            Firebase, so the name MUST be unique or it will write over
+
+     Usage:    storeImage.subscribe(img => {})
   */
+   // TODO write error callbacks
   public storeImage(
-	  userId: string, 
+	  userId: number, 
 	  imageFile: File,
  	  auth: string, 
   ): Observable<Image> {
     const imageRef = ref(storage, imageFile.name);
     
-    uploadBytes(imageRef, image).then(snapshot => {
-      getDownloadURL(imageRef).then(url => {
+    uploadBytes(imageRef, imageFile).then(snapshot => {
+      console.log('File uploaded'); 
+    }).catch(err => {
+      console.log(err);
+    })
+    
+    getDownloadURL(imageRef).then(url => {
 	const image: Image = {
 	  "id": 0,
 	  "imageURL": url,
@@ -98,9 +91,11 @@ export class UserimagesService {
 	  },
 	};
 
-        return postImage(image, auth);  
-      });
-    }); 
+        return this.postImage(image, auth);  
+    }).catch(err => {
+	console.log(err);
+    })
+    return new Observable();
   }
 
 }
