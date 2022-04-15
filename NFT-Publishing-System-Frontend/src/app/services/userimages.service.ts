@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpOptions } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { initializeApp } from 'firebase/app';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { Image } from '../models/image';
+import { Observable } from 'rxjs';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -24,25 +26,25 @@ export class UserimagesService {
 
   constructor(private http: HttpClient) {}
 
-  // To generate image name, use username and specific name of file 
-  // combined to create unique filename 
+  // To generate image name, use username and specific name of file
+  // combined to create unique filename
   public uploadImage(image: File) {
-    const imageRef = ref(storage, image.name);  
-    
+    const imageRef = ref(storage, image.name);
+
     uploadBytes(imageRef, image).then((snapshot) => {
-      console.log('Upload', snapshot.totalBytes, 'bytes.');
+      // console.log('Upload', snapshot.totalBytes, 'bytes.');
       getDownloadURL(snapshot.ref).then(url => {
         console.log('File available at', url);
       });
     }).catch(error => {
       console.error('Upload failed:', error);
     });
-  } 
+  }
 
   public getImagesOfUser(userId: number): Observable<Image[]> {
     return this.http.get<Image[]>(
       // TODO replace this with env var
-      "http://localhost:9090/users/" + userId + "images"
+      "http://localhost:9090/users/" + userId + "/images"
     )
   }
 

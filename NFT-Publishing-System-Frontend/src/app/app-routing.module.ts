@@ -19,7 +19,7 @@ const appRoutes: Routes = [
   { path:'users/:id1/images/:id2',component: ImagebyidComponent },
   { path:'nfts/:id',component: GetNFTByIdComponent },
   { path:'register',component:RegisterComponent},
-  { path:'nft',component:PostNftComponent}
+  { path:'nfts',component:PostNftComponent}
 
 ];
 
