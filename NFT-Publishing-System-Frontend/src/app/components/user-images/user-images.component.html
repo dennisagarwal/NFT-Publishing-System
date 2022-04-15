@@ -1,27 +1,19 @@
 <app-navbar></app-navbar>
 <div class="container">
+  <div class="userImage" fxLayoutAlign="space-evenly" fxLayout="row wrap">
+    <mat-card
+      class="userImagCard mat-elevation-z12"
+      *ngFor="let image of images"
+    >
+      <img class="userImage__image" src="{{image.imageURL}}" />
+      <mat-card-content>
+        <p class="userImage__para">IMAGE ID: {{ image.id }}</p>
 
-    <nav class="nav">
-      <ul>
-        <a class="nav__link" routerLink="/user">My Profile</a>
-        <a class="nav__link" routerLink="/users">All Profiles</a>
-        <a class="nav__link" routerLink="/login">Login</a>
-        <a class="nav__link" routerLink="/login">Logout</a>
-      </ul>
-    </nav>
-
-
-    <div class="user">
-      <div class="user__detail" *ngFor="let image of images">
-        <p class="user__para">
-          IMAGE ID: <span>{{ image.id }}</span>
-        </p >
-        <img class="user__image" src="{{image.imageURL}}" />
-        <p class="user__para">
-          USER ID : <span>{{ image.author.id }}</span>
+        <p class="userImage__para">
+          USER ID : {{ image.author.id }}
         </p>
-
-      </div>
-    </div>
+      </mat-card-content>
+    </mat-card>
   </div>
-
+</div>
+<app-footer><app-footer> </app-footer></app-footer>
