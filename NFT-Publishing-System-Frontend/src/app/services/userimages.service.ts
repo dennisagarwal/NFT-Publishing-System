@@ -42,15 +42,30 @@ export class UserimagesService {
   public getImagesOfUser(userId: number): Observable<Image[]> {
     return this.http.get<Image[]>(
       // TODO replace this with env var
-      "http://localhost:9090/users/" + userId + "images"
+      "http://localhost:9090/users/" + userId + "/images"
     )
   }
 
-  public getImageById(userId: number, imageId: number): Observable<Image> {
+  public getImageById(
+	  userId: number, 
+	  imageId: number
+  ): Observable<Image> {
     return this.http.get<Image>(
       // TODO replace with env var
       "http://localhost:9090/users/" + userId + "/images/" + imageId
     );
+  }
+
+  public postImage(
+	  userId: number, 
+	  image: Image,
+  	  httpOptions: HttpOptions	  
+  ): Observable<Image> {
+    return this.http.post<Image>(
+      "http://localhost:9090/users/" + userId + "/images",
+      image,
+      httpOptions 
+    )
   }
 
 }
