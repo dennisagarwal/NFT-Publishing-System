@@ -1,8 +1,34 @@
-.user{
-  width:100%;
-  display: flex;
+.userCard{
+ display: flex;
+ justify-content: center;
+ margin: 5%;
 }
 
-.user__detail{
-  width:20%
+.userProfile{
+
+  width:20%;
+  padding:2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.userProfile__header{
+  margin-bottom:8%;
+  margin-top: 8%;
+}
+
+/* .user__detail{
+  width:100%
+} */
+
+.userProfile__icons{
+  padding-right:50px;
+  padding-left:50px;
+  color: dodgerblue;
+}
+
+.userProfile__image{
+  border-radius: 10%;
 }
