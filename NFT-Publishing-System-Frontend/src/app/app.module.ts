@@ -18,6 +18,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import {MatIconModule} from '@angular/material/icon';
+import { FooterComponent } from './components/footer/footer.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import {MatIconModule} from '@angular/material/icon';
     ImagebyidComponent,
     GetNFTByIdComponent,
     PostNftComponent,
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,9 @@ import {MatIconModule} from '@angular/material/icon';
     MatToolbarModule,
     MatButtonModule,
     MatAutocompleteModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule
+
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS, useClass:InterceptorService, multi:true}
