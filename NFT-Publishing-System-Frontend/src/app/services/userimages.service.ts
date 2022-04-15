@@ -59,19 +59,48 @@ export class UserimagesService {
   }
 
   public postImage(
-	  userId: number, 
 	  image: Image,
 	  auth: string
   ): Observable<Image> {
     return this.http.post<Image>(
-      "http://localhost:9090/users/" + userId + "/images",
+      "http://localhost:9090/users/" + image.author.id + "/images",
       image,
       {
         headers: new HttpHeaders({
           "Authorization": auth,
 	}),
       }
-    )
+    );
+  }
+
+  /*
+     Takes in id of current user, image file and authorization
+     string, returns on observable which on success will subscribe
+     to the posted image returned by backend
+
+     NOTE: the image files are stored in global folder in 
+           Firebase, so the name MUST be unique or it will write over
+  */
+  public storeImage(
+	  userId: string, 
+	  imageFile: File,
+ 	  auth: string, 
+  ): Observable<Image> {
+    const imageRef = ref(storage, imageFile.name);
+    
+    uploadBytes(imageRef, image).then(snapshot => {
+      getDownloadURL(imageRef).then(url => {
+	const image: Image = {
+	  "id": 0,
+	  "imageURL": url,
+	  "author": {
+            "id": userId,
+	  },
+	};
+
+        return postImage(image, auth);  
+      });
+    }); 
   }
 
 }
