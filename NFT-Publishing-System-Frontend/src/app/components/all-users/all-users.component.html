@@ -1,31 +1,25 @@
 <app-navbar></app-navbar>
-<div>
-  <div class="container">
-    <nav class="nav">
-      <ul>
-        <a class="nav__link" routerLink="/user">My Profile</a>
-        <a class="nav__link" routerLink="/users">All Profiles</a>
-        <a class="nav__link" routerLink="/login">Login</a>
-        <a class="nav__link" routerLink="/login">Logout</a>
-      </ul>
-    </nav>
-    <div class="table table-bordered table-striped">
-      <div>
-      <div class="userHeading">
-        <p class="user__detailHeading">ID</p>
-        <p class="user__detailHeading">USERNAME</p>
-        <p class="user__detailHeading">PASSWORD</p>
-        <p class="user__detailHeading">ETH ADDRESS</p>
-      </div>
-      </div>
-      <div>
-      <div class="user" *ngFor="let alluser of allusers">
-        <p class="user__detail">{{alluser.id}}</p>
-        <p class="user__detail">{{alluser.username}}</p>
-        <p class="user__detail">{{alluser.password}}</p>
-        <p class="user__detail">{{alluser.ethAddress}}</p>
-      </div>
-      </div>
+    <div class="allUserCard" fxLayoutAlign="space-evenly" fxLayout="row wrap"   >
+      <mat-card class="allUserProfile  mat-elevation-z12" *ngFor="let alluser of allusers;let i = index" >
+        <mat-card-header class="allUserProfile__header">
+          <img  mat-card-avatar src="{{  randomUsers[i].fakeImage }}" />
+
+          <mat-card-title>User Name :{{ alluser.username }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <img
+            mat-card-image
+            class="user__image"
+
+            src="{{  randomUsers[i].fakeImage }}"
+            mat-card-image
+          />
+          <p class="user__detail">Id : {{ alluser.id }}</p>
+          <!-- <p class="user__detail">{{alluser.username}}</p> -->
+          <!-- <p class="user__detail">{{ alluser.password }}</p> -->
+          <p class="user__detail">Eth Address : {{ alluser.ethAddress }}</p>
+          <p class="user__detail">Cell :{{ randomUsers[i].fakePhone }}</p>
+        </mat-card-content>
+      </mat-card>
     </div>
-  </div>
-</div>
+<app-footer><app-footer> </app-footer></app-footer>
