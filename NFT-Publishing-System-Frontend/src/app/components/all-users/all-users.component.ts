@@ -34,10 +34,12 @@ export class AllUsersComponent implements OnInit {
   allusers!: alluser[];
   mediaSub! : Subscription;
   randomUsers:randomUser[]=[]
+  id1!:number;
 
   // constructor(private allUsersService: AllUsersService, private router: Router,
   //   private httpClient: HttpClient) {}
-    constructor( private httpClient: HttpClient) {
+    constructor( private httpClient: HttpClient,
+      private router:Router) {
 
     }
 
@@ -85,7 +87,15 @@ export class AllUsersComponent implements OnInit {
           this.randomUsers.push({ fakeImage, fakePhone});
         }
 
+
+
       });
   }
+
+  newChange(id1:number): void {
+    this.router.navigateByUrl('users/${id1}/images');
+}
+
+
 }
 
