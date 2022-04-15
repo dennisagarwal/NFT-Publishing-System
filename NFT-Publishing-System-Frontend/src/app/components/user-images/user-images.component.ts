@@ -3,6 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { UserimagesService } from 'src/app/services/userimages.service';
 import { Image } from 'src/app/models/image';
+import {MatDialog} from '@angular/material/dialog';
+import{MintNftComponent} from 'src/app/components/mint-nft/mint-nft.component'
+
 
 
 @Component({
@@ -17,7 +20,7 @@ export class UserImagesComponent implements OnInit {
 
   constructor( private httpClient: HttpClient,
      private route:ActivatedRoute,
-     private userImageService:UserimagesService) {}
+     private userImageService:UserimagesService, private _dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.id= this.route.snapshot.params['id']
@@ -25,6 +28,10 @@ export class UserImagesComponent implements OnInit {
       console.log(response)
         this.images = response;
     })
+  }
+
+  openDialog(){
+    this._dialog.open(MintNftComponent,{data:{name:'Lokesh'}});
   }
 
 }
