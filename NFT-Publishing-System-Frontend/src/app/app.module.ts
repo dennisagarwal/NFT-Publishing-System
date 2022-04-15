@@ -20,6 +20,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import {MatIconModule} from '@angular/material/icon';
 import { FooterComponent } from './components/footer/footer.component';
 import {MatCardModule} from '@angular/material/card';
+import {FlexLayoutModule} from '@angular/flex-layout'
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {MatCardModule} from '@angular/material/card';
     MatButtonModule,
     MatAutocompleteModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    FlexLayoutModule
 
   ],
   providers: [
