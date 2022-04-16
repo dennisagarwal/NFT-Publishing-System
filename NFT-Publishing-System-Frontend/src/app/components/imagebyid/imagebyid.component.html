@@ -1,12 +1,13 @@
 <app-navbar></app-navbar>
   <div class="container">
-    <table class="table table-bordered table-striped">
-      <tbody>
-        <td><span>{{image.id}}</span></td>
-        <img src="{{image.imageURL}}" alt="not found"/>
-        <td><span>{{image.author.id}}</span></td>
+    <mat-card class="userImageCard mat-elevation-z12">
+      <mat-card-content>
+        <!-- <p class="userImage__para">{{image.id}}</p> -->
+        <img class="userImage__image" src="{{image.imageURL}}" alt="not found"/>
+        <!-- <p class="userImage__para">{{image.author.id}}</p> -->
 
-      </tbody>
-    </table>
+      </mat-card-content>
+    </mat-card>
   </div>
+  <app-footer><app-footer> </app-footer></app-footer>
 
