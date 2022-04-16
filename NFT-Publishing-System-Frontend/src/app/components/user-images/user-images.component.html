@@ -1,15 +1,15 @@
 <app-navbar></app-navbar>
 <div class="container">
   <div class="userImage" fxLayoutAlign="space-evenly" fxLayout="row wrap">
+    <!-- TODO this src is incorrect, adding prefix of index site -->
     <mat-card
-      class="userImageCard mat-elevation-z12"
-      *ngFor="let image of images"
-    >
+      class="userImagCard mat-elevation-z12"
+      *ngFor="let image of images">
+      <img class="userImage__image" src="{{image.imageURL}}" />
       <mat-card-content>
         <img class="userImage__image" src="{{image.imageURL}}" alt="Image Not Found" />
 
         <p class="userImage__para">IMAGE ID: {{ image.id }}</p>
-
         <p class="userImage__para">
           USER ID : {{ image.author.id }}
         </p>
@@ -21,6 +21,8 @@
       </mat-card-actions>
     </mat-card-footer>
     </mat-card>
+	<input #imageInput type="file" />
+	<button (click)="submitImage(imageInput)" type="button">Submit Image</button>
   </div>
 </div>
 <app-footer></app-footer>

@@ -13,8 +13,8 @@ import {PostNftComponent} from './components/post-nft/post-nft.component';
 const appRoutes: Routes = [
   { path: '', redirectTo: 'login', pathMatch:'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'user',component: UserComponent },
-  { path: 'users',component: AllUsersComponent },
+  { path: 'users',component: UserComponent },
+  { path: 'allusers',component: AllUsersComponent },
   { path:'users/:id/images',component: UserImagesComponent },
   { path:'users/:id1/images/:id2',component: ImagebyidComponent },
   { path:'nfts/:id',component: GetNFTByIdComponent },
