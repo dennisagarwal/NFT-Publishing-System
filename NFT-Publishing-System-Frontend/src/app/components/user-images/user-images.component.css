@@ -14,3 +14,7 @@
   margin-bottom: 5%;
 }
 
+.userImage__image{
+  width:100%;
+  object-fit:cover;
+}

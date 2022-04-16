@@ -1,11 +1,16 @@
 <app-navbar></app-navbar>
-<div class="container">
+<mat-card class="userImageFileUpload">
+	<input #imageInput type="file" />
+	<button (click)="submitImage(imageInput)" type="button" mat-raised-button color="primary">
+    Submit Image
+  </button>
+  </mat-card>
   <div class="userImage" fxLayoutAlign="space-evenly" fxLayout="row wrap">
     <!-- TODO this src is incorrect, adding prefix of index site -->
     <mat-card
-      class="userImagCard mat-elevation-z12"
+      class="userImageCard mat-elevation-z12"
       *ngFor="let image of images">
-      <img class="userImage__image" src="{{image.imageURL}}" />
+      <!-- <img class="userImage__image" src="{{image.imageURL}}" /> -->
       <mat-card-content>
         <img class="userImage__image" src="{{image.imageURL}}" alt="Image Not Found" />
 
@@ -21,8 +26,6 @@
       </mat-card-actions>
     </mat-card-footer>
     </mat-card>
-	<input #imageInput type="file" />
-	<button (click)="submitImage(imageInput)" type="button">Submit Image</button>
+
   </div>
-</div>
 <app-footer></app-footer>

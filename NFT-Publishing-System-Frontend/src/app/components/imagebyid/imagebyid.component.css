@@ -2,16 +2,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding:10%;
-  background-color: rgb(79, 79, 79);
-  opacity: 0.5;
+  padding:2%;
+  background-color: rgb(79, 79, 79, 0.5);
+  /* opacity: 0.5; */
 }
-
-/* .userImage {
-  display: flex;
-  justify-content: center;
-  margin: 5%;
-} */
 
 
 .userImage__image{
@@ -20,12 +14,12 @@ height: 100%;
 }
 
 .userImageCard {
-  width:26%;
+  width:40%;
   padding:2%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 5%;
+  /* margin-bottom: 5%; */
 }
 
