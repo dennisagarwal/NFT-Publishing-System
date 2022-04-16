@@ -30,21 +30,9 @@ export class MintNftComponent implements OnInit {
   onSubmit(nftName:string,nftSymbol:string) {
     // form nft from interface and send
   
-    const nft: NFT = {
-      "name": nftName,
-      "symbol": nftSymbol,
-      "tokenId": 1,
-      "contractAddress": this._contractAddress,
-      "tokenUri": "storage/somePlace",
-      "image": {
-        "id": this._imgID,
-	"author": {
-	  "id": this._userID,
-	},
-      },
-    }
+    // use mintNFT to get a then-able (and deployed nft)
+    // mintNft(...).then(nft => { this.postNFTService.authenticateNFT(nft); })
 
-    this.postNFTService.authenticateNFT(nft);
   }
 
 }

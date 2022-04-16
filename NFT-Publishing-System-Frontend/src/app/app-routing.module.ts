@@ -15,6 +15,7 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'users',component: UserComponent },
   { path: 'allusers',component: AllUsersComponent },
+  // TODO change allusers to users for below component
   { path:'allusers/:id/images',component: UserImagesComponent },
   { path:'allusers/:id1/images/:id2',component: ImagebyidComponent },
   { path:'nfts/:id',component: GetNFTByIdComponent },
