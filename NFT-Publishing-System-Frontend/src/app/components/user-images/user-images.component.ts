@@ -31,7 +31,7 @@ export class UserImagesComponent implements OnInit {
   }
 
   openDialog(){
-    this._dialog.open(MintNftComponent,{data:{name:'Lokesh'}});
+    this._dialog.open(MintNftComponent,{data:this.images});
   }
 
 }
