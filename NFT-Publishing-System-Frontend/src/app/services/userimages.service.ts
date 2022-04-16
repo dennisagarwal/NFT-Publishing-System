@@ -46,7 +46,7 @@ export class UserimagesService {
   public postImage(
 	  image: Image,
 	  auth: string
-  ): Observable<Image> {
+  ): Observable<any> {
     return this.http.post<Image>(
       "http://localhost:9090/users/" + image.author.id + "/images",
       image,
@@ -73,7 +73,7 @@ export class UserimagesService {
 	  userId: number,
 	  imageFile: File,
  	  auth: string,
-  ): Observable<Image> {
+  ): Observable<any> {
     const imageRef = ref(storage, imageFile.name);
 
     uploadBytes(imageRef, imageFile).then(snapshot => {

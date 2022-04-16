@@ -39,7 +39,7 @@ export class LoginService {
 
         localStorage.setItem("user_info", JSON.stringify(res.body));
         console.log(localStorage.getItem("user_info"));
-        this.router.navigate(['user']);
+        this.router.navigate(['users']);
       }
     , err => {
         const errorMessage = err.error;
