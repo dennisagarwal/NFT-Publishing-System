@@ -9,6 +9,7 @@ import{MintNftComponent} from 'src/app/components/mint-nft/mint-nft.component'
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { Observable } from 'rxjs';
 import { initializeApp } from 'firebase/app';
+import { Location } from '@angular/common';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBh5grkgbDI9H_tvHbrxMRpGfAKfIGQCNw",
@@ -36,8 +37,10 @@ export class UserImagesComponent implements OnInit {
   constructor(
      private http: HttpClient,
      private route: ActivatedRoute,
+     private router:Router,
      private userImageService: UserimagesService,
      private _dialog: MatDialog,
+     private _location:Location
   ) {}
 
   ngOnInit(): void {
@@ -47,12 +50,11 @@ export class UserImagesComponent implements OnInit {
     this.userImageService.getImagesOfUser(this.id).subscribe((response)=>{
       console.log(response)
       this.images = response;
-    })
-
+    });
 
   }
 
-  public submitImage(input: any) {
+  public async submitImage(input: any) {
 	  /*
     this.userImageService.storeImage(
       this.id,
@@ -93,11 +95,35 @@ export class UserImagesComponent implements OnInit {
         console.log(err);
     });
 
-  }
+   }
 
   openDialog(){
     this._dialog.open(MintNftComponent,{data:this.images});
   }
 
-}
+  // refresh():void{
+  //   this.router.navigateByUrl("allusers/"+ this.id + "/images", {skipLocationChange:true}).then(()=>{
+  //     console.log(decodeURI(this._location.path()))
+  //     console.log("hello")
+  //     this.router.navigate([decodeURI(this._location.path())])
+  //   });
+  // }
+
+  // reloadComponent() {
+  //   let currentUrl = this.router.url;
+  //       this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+  //       this.router.onSameUrlNavigation = 'reload';
+  //       this.router.navigate([currentUrl]);
+  //   }
+
+  reloadComponent() {
+      let currentUrl = this.router.url;
+      this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+          this.router.navigate([currentUrl]);
+          console.log(currentUrl);
+      });
+    }
+
+  }
+
 

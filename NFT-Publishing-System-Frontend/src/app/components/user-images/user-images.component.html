@@ -1,7 +1,13 @@
 <app-navbar></app-navbar>
-<mat-card class="userImageFileUpload">
-	<input #imageInput type="file" />
-	<button (click)="submitImage(imageInput)" type="button" mat-raised-button color="primary">
+<mat-card  class="userImageFileUpload" fxLayoutAlign="end">
+	<input #imageInput type="file"
+  style="padding-top: 8px;" />
+	<button
+  (click)="submitImage(imageInput)"
+
+   type="button"
+   mat-raised-button color="primary"
+ >
     Submit Image
   </button>
   </mat-card>
@@ -11,19 +17,17 @@
       class="userImageCard mat-elevation-z12"
       *ngFor="let image of images">
       <!-- <img class="userImage__image" src="{{image.imageURL}}" /> -->
-      <mat-card-content>
-        <img class="userImage__image" src="{{image.imageURL}}" alt="Image Not Found" />
+      <mat-card-content class="userImage__content">
+        <img class="userImage__image" src="{{image.imageURL}}" routerLink="{{ image.id }}" alt="Image Not Found" />
 
         <p class="userImage__para">IMAGE ID: {{ image.id }}</p>
         <p class="userImage__para">
           USER ID : {{ image.author.id }}
         </p>
            </mat-card-content>
-      <mat-card-footer>
-        <mat-card-actions>
+      <mat-card-footer class="userImage__button">
         <button mat-raised-button color="primary" (click)="openDialog()" >Mint NFT</button>
-        <button mat-raised-button color="primary" routerLink="{{ image.id }}" >Show Image</button>
-      </mat-card-actions>
+        <!-- <button mat-raised-button color="primary" routerLink="{{ image.id }}" >Show Image</button> -->
     </mat-card-footer>
     </mat-card>
 

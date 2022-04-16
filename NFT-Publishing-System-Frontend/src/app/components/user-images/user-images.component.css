@@ -1,3 +1,4 @@
+
 .userImage {
   display: flex;
   justify-content: center;
@@ -16,5 +17,20 @@
 
 .userImage__image{
   width:100%;
-  object-fit:cover;
+  height: 80%;
+
+  object-fit:fill;
 }
+
+.userImage__image:hover{
+cursor:pointer;
+}
+
+.userImage__content{
+height: 80%;
+}
+
+.userImage__button{
+  margin: 0;
+}
+
