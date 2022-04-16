@@ -20,7 +20,9 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import {MatIconModule} from '@angular/material/icon';
 import { FooterComponent } from './components/footer/footer.component';
 import {MatCardModule} from '@angular/material/card';
-import {FlexLayoutModule} from '@angular/flex-layout'
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import {FlexLayoutModule} from '@angular/flex-layout'
     GetNFTByIdComponent,
     PostNftComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,8 @@ import {FlexLayoutModule} from '@angular/flex-layout'
     MatAutocompleteModule,
     MatIconModule,
     MatCardModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatDialogModule
 
   ],
   providers: [

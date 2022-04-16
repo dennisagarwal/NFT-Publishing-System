@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { MediaObserver, MediaChange } from '@angular/flex-layout';
 import { Subscription } from 'rxjs';
 import {faker}  from '@faker-js/faker';
+import {MatDialog} from '@angular/material/dialog';
+import { UserImagesComponent } from '../user-images/user-images.component';
 
 export class alluser{
   constructor(
@@ -39,7 +41,8 @@ export class AllUsersComponent implements OnInit {
   // constructor(private allUsersService: AllUsersService, private router: Router,
   //   private httpClient: HttpClient) {}
     constructor( private httpClient: HttpClient,
-      private router:Router) {
+      private router:Router,
+      private _dialog: MatDialog) {
 
     }
 
@@ -92,9 +95,13 @@ export class AllUsersComponent implements OnInit {
       });
   }
 
-  newChange(id1:number): void {
-    this.router.navigateByUrl('users/${id1}/images');
-}
+//   newChange(): void {
+//     this.router.navigateByUrl(`users/${id1}/images`);
+// }
+
+// openDialog(){
+//   this._dialog.open(UserImagesComponent,{data:{name:'Lokesh'}});
+// }
 
 
 }
