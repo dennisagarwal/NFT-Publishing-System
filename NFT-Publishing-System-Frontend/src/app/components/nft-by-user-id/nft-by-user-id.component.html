@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+
+  <div class="nft" fxLayoutAlign="space-evenly" fxLayout="row wrap">
+    <!-- TODO this src is incorrect, adding prefix of index site -->
+    <mat-card
+      class="nftCard mat-elevation-z12"
+      *ngFor="let NFT of nfts">
+      <mat-card-content class="nft__content">
+
+        <!-- <p class="nft__para">contractAddress: {{ NFT.contractAddress }}</p>
+        <p class="nft__para">ID : {{ NFT.id }} </p>
+        <p class="nft__para">contractAddress: {{ NFT.name }}</p>
+        <p class="nft__para">ID : {{ NFT.symbol }} </p>
+        <p class="nft__para">contractAddress: {{ NFT.tokenUri }}</p>
+        <p class="nft__para">ID : {{ NFT.image }} </p> -->
+
+
+        <p class="nft__para">contractAddress:  NFT.contractAddress </p>
+        <p class="nft__para">ID :  NFT.id  </p>
+        <p class="nft__para">contractAddress:  NFT.name </p>
+        <p class="nft__para">ID :  NFT.symbol  </p>
+        <p class="nft__para">contractAddress: NFT.tokenUri </p>
+        <p class="nft__para">ID :  NFT.image  </p>
+           </mat-card-content>
+    </mat-card>
+  </div>
+<app-footer></app-footer>
+

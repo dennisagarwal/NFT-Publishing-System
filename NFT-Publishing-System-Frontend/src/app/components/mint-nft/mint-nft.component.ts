@@ -1,5 +1,6 @@
-import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, Inject, Input, OnInit } from '@angular/core';
+
 import { PostNFTServiceService } from 'src/app/services/post-nftservice.service';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -8,6 +9,7 @@ import { lastValueFrom } from 'rxjs';
 import { User } from 'src/app/models/user-model';
 import { NFT } from 'src/app/models/nft';
 import { HttpClient } from '@angular/common/http';
+import { UserImagesComponent } from '../user-images/user-images.component';
 
 // TODO find a workaround for this direct paste of abi, bytecode info, import as JSON?
 const abi = [
@@ -445,6 +447,7 @@ const PROVIDER = new ethers.providers.JsonRpcProvider();
   styleUrls: ['./mint-nft.component.css'],
 })
 export class MintNftComponent implements OnInit {
+
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private postNFTService: PostNFTServiceService,
