@@ -4,6 +4,7 @@ export interface NFT {
   symbol: string;
   contractAddress: string;
   tokenUri: string;
+  owner: number;
   image: {
     id: number;
     author: {
