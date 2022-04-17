@@ -40,6 +40,7 @@ export class UserImagesComponent implements OnInit {
   id!: number;
   images!: Image[];
   auth: string = "";
+  image!: Image;
 
 
 
@@ -111,7 +112,8 @@ export class UserImagesComponent implements OnInit {
   openDialog(image: object){
     console.log("Image passed to oopendialog: ", image);
     this._dialog.open(MintNftComponent,{data: image});
+
+    
   }
 
 }
-

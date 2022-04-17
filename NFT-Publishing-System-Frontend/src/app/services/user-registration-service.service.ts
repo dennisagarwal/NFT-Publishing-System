@@ -31,7 +31,7 @@ export class UserRegistrationServiceService {
 	    this.router.navigate(['login']);
     }
   , err => {
-    //this.registrationSubject.next("Unable to create a user...");
+    this.registrationSubject.next("Unable to create a user...");
       const errorMessage = err.message;
       //this.registrationSubject.next(errorMessage); // Publish information to the loginErrorSubject
       console.log(err);
