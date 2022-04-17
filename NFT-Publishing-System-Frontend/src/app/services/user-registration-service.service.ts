@@ -11,8 +11,8 @@ export class UserRegistrationServiceService {
   registrationSubject: Subject<string> = new Subject<string>();
 
   constructor(private http: HttpClient, private router: Router) { }
-
-  apiUrl = "http://localhost:9090/users";
+  
+  apiUrl = "${environment.BACKEND_URL}/users";
 
   getPostUserData(
 	  username: string, 
@@ -27,7 +27,6 @@ export class UserRegistrationServiceService {
                        };
     this.http.post(this.apiUrl, userRegInfo,{'observe':'response'}).subscribe(
     res => {
-	    console.log('User created successfully');
 	    this.router.navigate(['login']);
     }
   , err => {
