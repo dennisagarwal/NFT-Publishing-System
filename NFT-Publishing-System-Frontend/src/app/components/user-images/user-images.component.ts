@@ -32,6 +32,7 @@ export class UserImagesComponent implements OnInit {
   id!: number;
   images!: Image[];
   auth: string = "";
+  image!: Image;
 
   constructor(
      private http: HttpClient,
@@ -95,8 +96,10 @@ export class UserImagesComponent implements OnInit {
 
   }
 
-  openDialog(){
-    this._dialog.open(MintNftComponent,{data:this.images});
+  openDialog(data:Image){
+    this._dialog.open(MintNftComponent,{data:this.images,height: '400px',
+    width: '700px'});
+ 
   }
 
 }

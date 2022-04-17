@@ -22,6 +22,11 @@ import { FooterComponent } from './components/footer/footer.component';
 import {MatCardModule} from '@angular/material/card';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MintNftComponent} from './components/mint-nft/mint-nft.component'
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -35,6 +40,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     PostNftComponent,
     NavbarComponent,
     FooterComponent,
+    MintNftComponent
+    
 
   ],
   imports: [
@@ -51,6 +58,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatCardModule,
     FlexLayoutModule,
     MatDialogModule
+
 
   ],
   providers: [

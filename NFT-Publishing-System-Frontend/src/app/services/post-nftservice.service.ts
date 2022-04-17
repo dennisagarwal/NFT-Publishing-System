@@ -31,7 +31,7 @@ export class PostNFTServiceService {
       this.httpOptions
     ).subscribe(
       (res) => {
-        this.router.navigate(['nft']);
+        this.router.navigate(['nfts']);
       },
       (err) => {
         const errorMessage = err.error;
@@ -40,4 +40,24 @@ export class PostNFTServiceService {
       }
     );
   }
+
+  postMintNFT(nft: NFT) {
+    this.http.post<NFT>(
+      `${environment.BACKEND_URL}/nfts`, 
+      nft, 
+      this.httpOptions
+    ).subscribe(
+      (res) => {
+        const url='allusers/'+res.image.author.id+'/images';
+        this.router.navigateByUrl(url);
+      },
+      (err) => {
+        const errorMessage = err.error;
+        console.log(err);
+        // this.postNFTErrorSubject.next(errorMessage); // Publish information to the loginErrorSubject
+      }
+    );
+  }
+
+  
 }

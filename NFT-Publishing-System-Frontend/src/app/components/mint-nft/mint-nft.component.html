@@ -1,15 +1,23 @@
-<p>Welcome mint-nft works! {{_firstName}}</p>
-<div class="register__right">
-    <h1 class="register__heading">MINT NFT</h1>
-    <div class="register__form">
-        <label class="register__label">Enter NFT Name</label>
-        <input class="register__input" type="text" id="nftname" #nftname />
-        <label class="register__label">Enter Symbol</label>
-        <input class="register__input" type="text" id="nftsymbol" #nftsymbol />
+
+
+<h2 mat-dialog-title> Welcome {{_firstName}}</h2>
+
+<div class="mintNFT__right" fxLayout="column" >
+    
+    <h1 class="mintNFT__heading">MINT NFT</h1>
+    <div class="mintNFT__form" fxLayout="column" >
+        <label class="mintNFT__label">Enter NFT Name</label>
+        <input class="mintNFT__input" tabindex="1" type="text" id="nftname" #nftname />
+        
+        <label class="mintNFT__label">Enter Symbol</label>
+        <input class="mintNFT__input" tabindex="2"  maxlength="4" pattern="[A-Za-z]" type="text" id="nftsymbol" #nftsymbol />
 
     </div>
     <div>
-        <button class="register__button" (click)="onSubmit(nftname.value,nftsymbol.value)" >MINT NFT</button>
+        <mat-dialog-actions align="end">
+            <button mat-raised-button tabindex="3" color="primary" (click)="onSubmit(nftname.value,nftsymbol.value)" >Mint NFT</button>
+            <button mat-raised-button tabindex="-1" mat-dialog-close [disabled]="formisvalid" color="primary" >Cancel</button>
+        </mat-dialog-actions>
         
     </div>
 </div>
