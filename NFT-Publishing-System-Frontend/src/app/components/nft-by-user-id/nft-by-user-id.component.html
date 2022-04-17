@@ -1,28 +1,60 @@
 <app-navbar></app-navbar>
 
-  <div class="nft" fxLayoutAlign="space-evenly" fxLayout="row wrap">
-    <!-- TODO this src is incorrect, adding prefix of index site -->
-    <mat-card
-      class="nftCard mat-elevation-z12"
-      *ngFor="let NFT of nfts">
-      <mat-card-content class="nft__content">
 
-        <!-- <p class="nft__para">contractAddress: {{ NFT.contractAddress }}</p>
-        <p class="nft__para">ID : {{ NFT.id }} </p>
-        <p class="nft__para">contractAddress: {{ NFT.name }}</p>
-        <p class="nft__para">ID : {{ NFT.symbol }} </p>
-        <p class="nft__para">contractAddress: {{ NFT.tokenUri }}</p>
-        <p class="nft__para">ID : {{ NFT.image }} </p> -->
+<div class="nftTableContainer" fxLayout="column"  >
 
+  <table mat-table class="mat-elevation-z8 nftTableHeader" fxLayoutAlign="space-around center" style="color:#3f51b5" >
 
-        <p class="nft__para">contractAddress:  NFT.contractAddress </p>
-        <p class="nft__para">ID :  NFT.id  </p>
-        <p class="nft__para">contractAddress:  NFT.name </p>
-        <p class="nft__para">ID :  NFT.symbol  </p>
-        <p class="nft__para">contractAddress: NFT.tokenUri </p>
-        <p class="nft__para">ID :  NFT.image  </p>
-           </mat-card-content>
-    </mat-card>
+    <ng-container class="nftTable__column" matColumnDef="position">
+      <th mat-header-cell > NFT Id </th>
+    </ng-container>
+
+    <ng-container class="nftTable__column" matColumnDef="position">
+      <th mat-header-cell > NFT Name </th>
+    </ng-container>
+
+    <ng-container class="nftTable__column symbol" matColumnDef="position">
+      <th mat-header-cell > NFT Symbol </th>
+    </ng-container>
+
+    <ng-container class="nftTable__column" matColumnDef="position">
+      <th mat-header-cell > NFT Image Id </th>
+    </ng-container>
+
+  </table>
+
+    <table *ngFor="let NFT of nfts" mat-table class="mat-elevation-z8 nftTable"  fxLayoutAlign="space-around center">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+
+      <ng-container matColumnDef="position">
+        <td mat-cell > {{NFT.id}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <td mat-cell> {{NFT.name}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="name">
+        <td mat-cell> {{NFT.symbol}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="name">
+        <td mat-cell> {{NFT.image.id}} </td>
+      </ng-container>
+
+      <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let  NFT; columns: displayedColumns;"></tr> -->
+    </table>
+
   </div>
+
+
 <app-footer></app-footer>
 

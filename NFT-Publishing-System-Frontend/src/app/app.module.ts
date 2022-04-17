@@ -23,7 +23,7 @@ import {MatCardModule} from '@angular/material/card';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatDialogModule} from '@angular/material/dialog';
 import { NftByUserIdComponent } from './components/nft-by-user-id/nft-by-user-id.component';
-import {MintNftComponent} from './components/mint-nft/mint-nft.component'
+import {MintNftComponent} from './components/mint-nft/mint-nft.component';
 
 
 
@@ -60,7 +60,6 @@ import {MintNftComponent} from './components/mint-nft/mint-nft.component'
     MatCardModule,
     FlexLayoutModule,
     MatDialogModule,
-
 
   ],
   providers: [

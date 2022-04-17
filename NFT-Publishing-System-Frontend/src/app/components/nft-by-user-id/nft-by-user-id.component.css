@@ -1,22 +1,20 @@
 
-.nft {
-  display: flex;
-  justify-content: center;
-  margin: 5%;
+
+.nftTableContainer{
+  height:100vh;
 }
 
-.nftCard {
-  width:26%;
-  padding:2%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 5%;
+
+.nftTableHeader{
+  height: 80px;
+  }
+
+.nftTable{
+  height:60px;
 }
 
-.nft__content{
-height: 80%;
+.symbol{
+  margin-left: 10px;
 }
 
 

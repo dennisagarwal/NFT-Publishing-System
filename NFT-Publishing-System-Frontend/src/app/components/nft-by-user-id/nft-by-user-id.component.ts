@@ -14,6 +14,8 @@ export class NftByUserIdComponent implements OnInit {
 id!:number;
 nfts! :NFT[];
   userId!: number;
+
+
   constructor(private httpClient: HttpClient,
     private router:Router,
     private route: ActivatedRoute) { }
@@ -31,8 +33,13 @@ nfts! :NFT[];
       console.log(response)
       this.nfts =response;
     })
+
   }
 
 }
+
+
+
+
 
 
