@@ -487,6 +487,7 @@ export class MintNftComponent implements OnInit {
       symbol: nftSymbol,
       contractAddress: contract_rw.address,
       tokenUri: tokenUri,
+      owner: userId,
       image: {
         id: imageId,
         author: {
