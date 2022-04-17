@@ -22,7 +22,7 @@ const appRoutes: Routes = [
   { path:'nfts/:id',component: GetNFTByIdComponent },
   { path:'register',component:RegisterComponent},
   { path:'nfts',component:PostNftComponent},
-  { path:'users/:id/nfts',component: NftByUserIdComponent}
+  { path:'allusers/:id/nfts',component: NftByUserIdComponent}
 ];
 
 @NgModule({

@@ -13,12 +13,16 @@
       <th mat-header-cell > NFT Name </th>
     </ng-container>
 
-    <ng-container class="nftTable__column symbol" matColumnDef="position">
+    <ng-container class="nftTable__column" matColumnDef="position">
       <th mat-header-cell > NFT Symbol </th>
     </ng-container>
 
-    <ng-container class="nftTable__column" matColumnDef="position">
+    <!-- <ng-container class="nftTable__column" matColumnDef="position">
       <th mat-header-cell > NFT Image Id </th>
+    </ng-container> -->
+
+    <ng-container class="nftTable__column" matColumnDef="position">
+      <th mat-header-cell > NFT Contract Address</th>
     </ng-container>
 
   </table>
@@ -45,8 +49,12 @@
       </ng-container>
 
       <!-- Symbol Column -->
-      <ng-container matColumnDef="name">
+      <!-- <ng-container matColumnDef="name" >
         <td mat-cell> {{NFT.image.id}} </td>
+      </ng-container> -->
+
+      <ng-container matColumnDef="name">
+        <td mat-cell> {{NFT.contractAddress}} </td>
       </ng-container>
 
       <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

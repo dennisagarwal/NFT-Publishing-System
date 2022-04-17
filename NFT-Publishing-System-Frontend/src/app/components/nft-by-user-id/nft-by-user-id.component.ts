@@ -27,6 +27,7 @@ nfts! :NFT[];
   }
 
   getAllNftsByUserId(id:number){
+    // apiUrl = `${environment.BACKEND_URL}+ this.id + "/nfts/nfts/`;
 
     this.httpClient.get<NFT[]>("http://localhost:9090/users/" + this.id + "/nfts")
     .subscribe((response: any)=>{
