@@ -12,4 +12,9 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  logout(){
+    localStorage.removeItem('jwt');
+    localStorage.removeItem('user_info');
+  }
+
 }
