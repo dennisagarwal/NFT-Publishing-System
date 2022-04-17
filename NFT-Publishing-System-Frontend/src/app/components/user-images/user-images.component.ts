@@ -474,6 +474,15 @@ export class UserImagesComponent implements OnInit {
 
   }
 
+  private reloadComponent() { 
+    let currentUrl = this.router.url; 
+    this.router.navigateByUrl('/', {skipLocationChange: true})
+    .then(() => { 
+      this.router.navigate([currentUrl]); 
+      console.log(currentUrl); 
+    }); 
+  }
+
   public async submitImage(input: any) {
 	  /*
     this.userImageService.storeImage(
@@ -489,12 +498,9 @@ export class UserImagesComponent implements OnInit {
     const imageFile = input.files[0];
     const imageRef = ref(storage, imageFile.name);
 
-    uploadBytes(imageRef, imageFile).then(snapshot => {
-      console.log('File uploaded');
-      return getDownloadURL(imageRef);
-    })
-    .then(url => {
-        const image: Image = {
+    let snapshot = await uploadBytes(imageRef, imageFile);
+    let url = await getDownloadURL(imageRef);
+    const image: Image = await {
           "id": 0,
           "imageURL": url,
           "author": {
@@ -502,7 +508,7 @@ export class UserImagesComponent implements OnInit {
           },
         };
 
-	this.http.post<Image>(
+    let img = await lastValueFrom(this.http.post<Image>(
           "http://localhost:9090/users/" + image.author.id + "/images",
           image,
           {
@@ -510,12 +516,11 @@ export class UserImagesComponent implements OnInit {
               "Authorization": this.auth,
             }),
           }
-        ).subscribe(img => { console.log(img); });
-    }).catch(err => {
-        console.log(err);
-    });
+    ));
 
-   }
+    await this.reloadComponent();
+
+  }
 
   openDialog(){
     this._dialog.open(MintNftComponent,{data:this.images});

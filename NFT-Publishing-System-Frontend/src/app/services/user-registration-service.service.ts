@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { Router } from '@angular/router';
+import { ethers } from 'ethers';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,7 @@ export class UserRegistrationServiceService {
     const userRegInfo = {
 	    	         "username": username, 
 			 "password": password,
-			 "ethAddress": 
+			 "ethAddress": privateKey
                        };
     this.http.post(this.apiUrl, userRegInfo,{'observe':'response'}).subscribe(
     res => {

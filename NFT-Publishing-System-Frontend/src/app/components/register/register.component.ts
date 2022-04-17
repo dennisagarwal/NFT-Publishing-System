@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userRegistration.registrationSubject.subscribe((Msg: string) => {
+    this.userRegistrationService.registrationSubject.subscribe((Msg: string) => {
       this.userRegMsg = Msg;
     });
   }
