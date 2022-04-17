@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { UserimagesService } from 'src/app/services/userimages.service';
@@ -13,6 +13,8 @@ import { Location } from '@angular/common';
 import { NFT } from 'src/app/models/nft';
 import { ethers } from 'ethers';
 import { User } from 'src/app/models/user-model';
+
+
 
 
 
@@ -38,6 +40,8 @@ export class UserImagesComponent implements OnInit {
   id!: number;
   images!: Image[];
   auth: string = "";
+
+
 
   constructor(
      private http: HttpClient,
