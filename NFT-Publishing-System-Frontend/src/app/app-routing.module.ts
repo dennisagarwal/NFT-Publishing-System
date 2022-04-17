@@ -8,6 +8,7 @@ import {ImagebyidComponent} from './components/imagebyid/imagebyid.component';
 import {GetNFTByIdComponent} from './components/get-nftby-id/get-nftby-id.component'
 import {RegisterComponent} from './components/register/register.component';
 import {PostNftComponent} from './components/post-nft/post-nft.component';
+import { NftByUserIdComponent } from './components/nft-by-user-id/nft-by-user-id.component';
 
 
 const appRoutes: Routes = [
@@ -20,8 +21,8 @@ const appRoutes: Routes = [
   { path:'allusers/:id1/images/:id2',component: ImagebyidComponent },
   { path:'nfts/:id',component: GetNFTByIdComponent },
   { path:'register',component:RegisterComponent},
-  { path:'nfts',component:PostNftComponent}
-
+  { path:'nfts',component:PostNftComponent},
+  { path:'users/:id/nfts',component: NftByUserIdComponent}
 ];
 
 @NgModule({

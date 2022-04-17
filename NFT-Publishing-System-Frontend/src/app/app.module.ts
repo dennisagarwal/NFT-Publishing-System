@@ -22,6 +22,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import {MatCardModule} from '@angular/material/card';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatDialogModule} from '@angular/material/dialog';
+import { NftByUserIdComponent } from './components/nft-by-user-id/nft-by-user-id.component';
+
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     PostNftComponent,
     NavbarComponent,
     FooterComponent,
+    NftByUserIdComponent,
 
   ],
   imports: [
