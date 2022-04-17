@@ -12,20 +12,21 @@ import { UserRegistrationServiceService } from '../../services/user-registration
 })
 export class RegisterComponent implements OnInit {
   userRegMsg!: string;
-  constructor(private userRegistration: UserRegistrationServiceService) {
+  constructor(private userRegistrationService: UserRegistrationServiceService) {
 
   }
 
   ngOnInit(): void {
-    this.userRegistration.registrationSubject.subscribe((Msg: string) => {
+    this.userRegistrationService.registrationSubject.subscribe((Msg: string) => {
       this.userRegMsg = Msg;
     });
   }
 
-
-
-  userRegistrationProcess(username:string, password:string){
-    this.userRegistration.getPostUserData(username,password);
+  userRegistrationProcess(
+	  username:string, 
+	  password:string
+  ) {
+    this.userRegistrationService.getPostUserData(username,password);
   }
 
 }

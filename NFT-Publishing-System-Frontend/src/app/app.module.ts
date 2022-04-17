@@ -57,7 +57,7 @@ import {MintNftComponent} from './components/mint-nft/mint-nft.component'
     MatIconModule,
     MatCardModule,
     FlexLayoutModule,
-    MatDialogModule
+    MatDialogModule,
 
 
   ],

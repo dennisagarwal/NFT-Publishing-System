@@ -1,14 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { UserimagesService } from 'src/app/services/userimages.service';
 import { Image } from 'src/app/models/image';
 import { Router } from '@angular/router';
-import {MatDialog} from '@angular/material/dialog';
-import{MintNftComponent} from 'src/app/components/mint-nft/mint-nft.component'
+import { MatDialog } from '@angular/material/dialog';
+import { MintNftComponent } from 'src/app/components/mint-nft/mint-nft.component'
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { Observable } from 'rxjs';
+import { Observable, lastValueFrom } from 'rxjs';
 import { initializeApp } from 'firebase/app';
+import { Location } from '@angular/common';
+import { NFT } from 'src/app/models/nft';
+import { ethers } from 'ethers';
+import { User } from 'src/app/models/user-model';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBh5grkgbDI9H_tvHbrxMRpGfAKfIGQCNw",
@@ -37,8 +41,10 @@ export class UserImagesComponent implements OnInit {
   constructor(
      private http: HttpClient,
      private route: ActivatedRoute,
+     private router:Router,
      private userImageService: UserimagesService,
      private _dialog: MatDialog,
+     private _location:Location
   ) {}
 
   ngOnInit(): void {
@@ -46,14 +52,19 @@ export class UserImagesComponent implements OnInit {
     this.auth = "Bearer " + localStorage.getItem('jwt');
     // remove from ngOnInit into separate function
     this.userImageService.getImagesOfUser(this.id).subscribe((response)=>{
-      console.log(response)
       this.images = response;
-    })
-
-
+    });
   }
 
-  public submitImage(input: any) {
+  private reloadComponent() {
+    let currentUrl = this.router.url;
+    this.router.navigateByUrl('/', {skipLocationChange: true})
+    .then(() => {
+      this.router.navigate([currentUrl]);
+    });
+  }
+
+  public async submitImage(input: any) {
 	  /*
     this.userImageService.storeImage(
       this.id,
@@ -68,12 +79,9 @@ export class UserImagesComponent implements OnInit {
     const imageFile = input.files[0];
     const imageRef = ref(storage, imageFile.name);
 
-    uploadBytes(imageRef, imageFile).then(snapshot => {
-      console.log('File uploaded');
-      return getDownloadURL(imageRef);
-    })
-    .then(url => {
-        const image: Image = {
+    let snapshot = await uploadBytes(imageRef, imageFile);
+    let url = await getDownloadURL(imageRef);
+    const image: Image = await {
           "id": 0,
           "imageURL": url,
           "author": {
@@ -81,7 +89,7 @@ export class UserImagesComponent implements OnInit {
           },
         };
 
-	this.http.post<Image>(
+    let img = await lastValueFrom(this.http.post<Image>(
           "http://localhost:9090/users/" + image.author.id + "/images",
           image,
           {
@@ -89,18 +97,17 @@ export class UserImagesComponent implements OnInit {
               "Authorization": this.auth,
             }),
           }
-        ).subscribe(img => { console.log(img); });
-    }).catch(err => {
-        console.log(err);
-    });
+    ));
+
+    await this.reloadComponent();
 
   }
 
-  openDialog(data:Image){
-    this._dialog.open(MintNftComponent,{data:this.images,height: '400px',
-    width: '700px'});
- 
+  openDialog(image: object){
+    console.log("Image passed to oopendialog: ", image);
+    this._dialog.open(MintNftComponent,{data: image});
+
+    
   }
 
 }
-

@@ -16,7 +16,7 @@ This is the full-stack application for an NFT publishing system
 ## Tech Stack
 - Spring Framework
 - Angular13
-- PostgresSQL
+- PostgreSQL
 - Ethereum protocol
 
 

@@ -25,6 +25,7 @@ export class PostNFTServiceService {
   };
 
   authenticateNFT(nft: NFT) {
+    debugger;
     this.http.post<NFT>(
       `${environment.BACKEND_URL}/nfts`, 
       nft, 
@@ -34,6 +35,7 @@ export class PostNFTServiceService {
         this.router.navigate(['nfts']);
       },
       (err) => {
+        alert("Failure");
         const errorMessage = err.error;
         console.log(err);
         // this.postNFTErrorSubject.next(errorMessage); // Publish information to the loginErrorSubject

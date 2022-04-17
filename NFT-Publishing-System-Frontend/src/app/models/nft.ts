@@ -1,7 +1,7 @@
 export interface NFT {
+  id: number;
   name: string;
   symbol: string;
-  tokenId: number;
   contractAddress: string;
   tokenUri: string;
   image: {

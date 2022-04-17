@@ -1,7 +1,3 @@
-
-
-<h2 mat-dialog-title> Welcome {{_firstName}}</h2>
-
 <div class="mintNFT__right" fxLayout="column" >
     
     <h1 class="mintNFT__heading">MINT NFT</h1>
@@ -16,8 +12,7 @@
     <div>
         <mat-dialog-actions align="end">
             <button mat-raised-button tabindex="3" color="primary" (click)="onSubmit(nftname.value,nftsymbol.value)" >Mint NFT</button>
-            <button mat-raised-button tabindex="-1" mat-dialog-close [disabled]="formisvalid" color="primary" >Cancel</button>
+            <button mat-raised-button tabindex="-1" mat-dialog-close  color="primary" >Cancel</button>
         </mat-dialog-actions>
-        
     </div>
 </div>

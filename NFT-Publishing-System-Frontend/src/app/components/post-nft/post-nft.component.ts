@@ -43,21 +43,8 @@ export class PostNftComponent implements OnInit {
   // Don't actually need the image from above, only the imageId should be passed along,
   onSubmit() {
     // form nft from interface and send
-    const nft: NFT = {
-      "name": "MyNFT",
-      "symbol": "MNFT",
-      "tokenId": 1,
-      "contractAddress": this.NFTForm.value.contractAddress,
-      "tokenUri": "storage/somePlace",
-      "image": {
-        "id": this.NFTForm.value.imageId,
-	"author": {
-	  "id": this.NFTForm.value.authorId,
-	},
-      },
-    }
 
-    this.postNFTService.authenticateNFT(nft);
+    //this.postNFTService.authenticateNFT(nft);
   }
 
 }
