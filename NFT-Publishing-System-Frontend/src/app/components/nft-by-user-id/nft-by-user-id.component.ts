@@ -24,9 +24,9 @@ nfts! :NFT[];
     this.getAllNftsByUserId(this.id)
   }
 
-  getAllNftsByUserId(userId:number){
+  getAllNftsByUserId(id:number){
 
-    this.httpClient.get<NFT[]>("http://localhost:9090/users/" + this.userId + "/nfts")
+    this.httpClient.get<NFT[]>("http://localhost:9090/users/" + this.id + "/nfts")
     .subscribe((response: any)=>{
       console.log(response)
       this.nfts =response;
