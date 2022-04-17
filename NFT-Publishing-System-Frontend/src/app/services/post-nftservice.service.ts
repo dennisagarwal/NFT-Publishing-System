@@ -31,7 +31,7 @@ export class PostNFTServiceService {
       this.httpOptions
     ).subscribe(
       (res) => {
-        this.router.navigate(['nft']);
+        this.router.navigate(['nfts']);
       },
       (err) => {
         const errorMessage = err.error;

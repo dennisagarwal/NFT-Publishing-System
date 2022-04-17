@@ -57,10 +57,8 @@ export class UserImagesComponent implements OnInit {
     this.auth = "Bearer " + localStorage.getItem('jwt');
     // remove from ngOnInit into separate function
     this.userImageService.getImagesOfUser(this.id).subscribe((response)=>{
-      console.log(response)
       this.images = response;
     });
-
   }
 
   private reloadComponent() {
@@ -68,7 +66,6 @@ export class UserImagesComponent implements OnInit {
     this.router.navigateByUrl('/', {skipLocationChange: true})
     .then(() => {
       this.router.navigate([currentUrl]);
-      console.log(currentUrl);
     });
   }
 
@@ -111,13 +108,10 @@ export class UserImagesComponent implements OnInit {
 
   }
 
-  openDialog(image:object){
-    console.log(image)
-    this._dialog.open(MintNftComponent,{data:image});
-
+  openDialog(image: object){
+    console.log("Image passed to oopendialog: ", image);
+    this._dialog.open(MintNftComponent,{data: image});
   }
-
-
 
 }
 

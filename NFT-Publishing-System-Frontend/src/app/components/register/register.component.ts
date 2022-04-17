@@ -22,7 +22,10 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  userRegistrationProcess(username:string, password:string){
+  userRegistrationProcess(
+	  username:string, 
+	  password:string
+  ) {
     this.userRegistrationService.getPostUserData(username,password);
   }
 
