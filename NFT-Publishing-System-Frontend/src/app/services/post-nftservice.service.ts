@@ -25,7 +25,6 @@ export class PostNFTServiceService {
   };
 
   authenticateNFT(nft: NFT) {
-    debugger;
     this.http.post<NFT>(
       `${environment.BACKEND_URL}/nfts`, 
       nft, 
