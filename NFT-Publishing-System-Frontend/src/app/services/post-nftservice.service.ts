@@ -25,25 +25,6 @@ export class PostNFTServiceService {
   };
 
   authenticateNFT(nft: NFT) {
-    debugger;
-    this.http.post<NFT>(
-      `${environment.BACKEND_URL}/nfts`, 
-      nft, 
-      this.httpOptions
-    ).subscribe(
-      (res) => {
-        this.router.navigate(['nfts']);
-      },
-      (err) => {
-        alert("Failure");
-        const errorMessage = err.error;
-        console.log(err);
-        // this.postNFTErrorSubject.next(errorMessage); // Publish information to the loginErrorSubject
-      }
-    );
-  }
-
-  postMintNFT(nft: NFT) {
     this.http.post<NFT>(
       `${environment.BACKEND_URL}/nfts`, 
       nft, 
@@ -52,8 +33,10 @@ export class PostNFTServiceService {
       (res) => {
         const url='allusers/'+res.image.author.id+'/images';
         this.router.navigateByUrl(url);
+        //this.router.navigate([url]);
       },
       (err) => {
+        alert("Failure");
         const errorMessage = err.error;
         console.log(err);
         // this.postNFTErrorSubject.next(errorMessage); // Publish information to the loginErrorSubject
