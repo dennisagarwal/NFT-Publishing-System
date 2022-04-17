@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { UserimagesService } from 'src/app/services/userimages.service';
@@ -13,8 +13,6 @@ import { Location } from '@angular/common';
 import { NFT } from 'src/app/models/nft';
 import { ethers } from 'ethers';
 import { User } from 'src/app/models/user-model';
-
-
 
 const firebaseConfig = {
   apiKey: "AIzaSyBh5grkgbDI9H_tvHbrxMRpGfAKfIGQCNw",
@@ -53,10 +51,8 @@ export class UserImagesComponent implements OnInit {
     this.auth = "Bearer " + localStorage.getItem('jwt');
     // remove from ngOnInit into separate function
     this.userImageService.getImagesOfUser(this.id).subscribe((response)=>{
-      console.log(response)
       this.images = response;
     });
-
   }
 
   private reloadComponent() {
@@ -64,7 +60,6 @@ export class UserImagesComponent implements OnInit {
     this.router.navigateByUrl('/', {skipLocationChange: true})
     .then(() => {
       this.router.navigate([currentUrl]);
-      console.log(currentUrl);
     });
   }
 
@@ -107,13 +102,10 @@ export class UserImagesComponent implements OnInit {
 
   }
 
-  openDialog(image:object){
-    console.log(image)
-    this._dialog.open(MintNftComponent,{data:image});
-
+  openDialog(image: object){
+    console.log("Image passed to oopendialog: ", image);
+    this._dialog.open(MintNftComponent,{data: image});
   }
-
-
 
 }
 
