@@ -5,6 +5,7 @@ This is the full-stack application for an NFT publishing system
 ## Features
 
 ## To-Dos
+- Check code in SonarQube
 - Include logging in logback.xml and write logging logic into backend
 - Integrations test using MockMvc 
 - Finish UI/UX for users gallery
