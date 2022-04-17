@@ -33,8 +33,6 @@ export class UserRegistrationServiceService {
   , err => {
     this.registrationSubject.next("Unable to create a user...");
       const errorMessage = err.message;
-      //this.registrationSubject.next(errorMessage); // Publish information to the loginErrorSubject
-      console.log(err);
   })
   }
 
