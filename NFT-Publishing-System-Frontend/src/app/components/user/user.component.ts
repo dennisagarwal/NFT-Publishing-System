@@ -35,7 +35,7 @@ export class UserComponent implements OnInit {
     this.username = user.username;
     this.password = user.password;
     this.ethAddress = user.ethAddress;
-    console.log(user);
+    // console.log(user);
 
     this.loginService.getUserInfoFromJwt().subscribe(
       (res: any) => {
