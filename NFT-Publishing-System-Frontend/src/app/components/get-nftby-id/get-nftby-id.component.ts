@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 export class allNFT {
   constructor(
@@ -37,8 +38,9 @@ export class GetNFTByIdComponent implements OnInit {
   }
 
   getAllNFTs(id:number) {
+    const apiUrl =`${environment.BACKEND_URL}/nfts/${id}`;
     this.httpClient
-      .get<any>(`http://localhost:9090/nfts/${id}`)
+      .get<any>(apiUrl)
       .subscribe((response) => {
         console.log(response)
         this.allNFT = response;
@@ -46,8 +48,9 @@ export class GetNFTByIdComponent implements OnInit {
   }
 
   onDelete(id:number) {
+    const apiUrl =`${environment.BACKEND_URL}/nfts/${id}`;
     this.httpClient
-      .delete<any>(`http://localhost:9090/nfts/${id}`)
+      .delete<any>(apiUrl)
       .subscribe((response) => {
         console.log(response)
        this.ngOnInit()

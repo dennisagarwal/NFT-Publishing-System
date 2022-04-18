@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import {faker}  from '@faker-js/faker';
 import {MatDialog} from '@angular/material/dialog';
 import { UserImagesComponent } from '../user-images/user-images.component';
+import { environment } from 'src/environments/environment';
 
 export class alluser{
   constructor(
@@ -78,8 +79,9 @@ export class AllUsersComponent implements OnInit {
 
 
   getAllUsers() {
+    const apiUrl =`${environment.BACKEND_URL}/users`;
     this.httpClient
-      .get<any>('http://localhost:9090/users')
+      .get<any>(apiUrl)
       .subscribe((response) => {
         console.log(response)
         this.allusers = response;

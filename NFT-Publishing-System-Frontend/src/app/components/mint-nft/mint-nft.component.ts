@@ -10,6 +10,7 @@ import { User } from 'src/app/models/user-model';
 import { NFT } from 'src/app/models/nft';
 import { HttpClient } from '@angular/common/http';
 import { UserImagesComponent } from '../user-images/user-images.component';
+import { environment } from 'src/environments/environment';
 
 // TODO find a workaround for this direct paste of abi, bytecode info, import as JSON?
 const abi = [
@@ -453,7 +454,7 @@ export class MintNftComponent implements OnInit {
     private postNFTService: PostNFTServiceService,
     private http: HttpClient
   ) {
-    console.log(data); 
+    console.log(data);
   }
 
   ngOnInit(): void {}
@@ -465,9 +466,11 @@ export class MintNftComponent implements OnInit {
     imageId: number,
     userId: number
   ): Promise<NFT> {
+    const apiUrl =`${environment.BACKEND_URL}/users/${userId}`;
     // converts observable to promise to use with async/await
     let user = await lastValueFrom(
-      this.http.get<User>('http://localhost:9090/users/' + userId)
+
+      this.http.get<User>(apiUrl)
     );
     // change to this when testing on ropsten network
     // let wallet = await new ethers.Wallet(user.ethAddress);

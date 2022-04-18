@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { ethers } from 'ethers';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,17 +12,17 @@ export class UserRegistrationServiceService {
   registrationSubject: Subject<string> = new Subject<string>();
 
   constructor(private http: HttpClient, private router: Router) { }
-  
-  apiUrl = "${environment.BACKEND_URL}/users";
+
+  apiUrl = `${environment.BACKEND_URL}/users`;
 
   getPostUserData(
-	  username: string, 
+	  username: string,
 	  password: string,
   ) {
     let wallet = ethers.Wallet.createRandom();
     let privateKey = wallet.privateKey;
     const userRegInfo = {
-	    	         "username": username, 
+	    	         "username": username,
 			 "password": password,
 			 "ethAddress": privateKey
                        };

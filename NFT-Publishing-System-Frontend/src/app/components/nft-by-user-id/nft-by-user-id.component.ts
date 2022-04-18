@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NFT } from 'src/app/models/nft';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -27,9 +28,9 @@ nfts! :NFT[];
   }
 
   getAllNftsByUserId(id:number){
-    // apiUrl = `${environment.BACKEND_URL}+ this.id + "/nfts/nfts/`;
+    const apiUrl =`${environment.BACKEND_URL}/users/${this.id}/nfts`;
 
-    this.httpClient.get<NFT[]>("http://localhost:9090/users/" + this.id + "/nfts")
+    this.httpClient.get<NFT[]>(apiUrl)
     .subscribe((response: any)=>{
       console.log(response)
       this.nfts =response;

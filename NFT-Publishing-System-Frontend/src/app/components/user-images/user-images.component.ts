@@ -13,6 +13,7 @@ import { Location } from '@angular/common';
 import { NFT } from 'src/app/models/nft';
 import { ethers } from 'ethers';
 import { User } from 'src/app/models/user-model';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -94,9 +95,10 @@ export class UserImagesComponent implements OnInit {
             "id": this.id,
           },
         };
-
+        const apiUrl =`${environment.BACKEND_URL}/users/${image.author.id}/images`;
     let img = await lastValueFrom(this.http.post<Image>(
-          "http://localhost:9090/users/" + image.author.id + "/images",
+
+      apiUrl,
           image,
           {
             headers: new HttpHeaders({

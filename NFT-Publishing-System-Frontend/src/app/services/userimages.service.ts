@@ -4,6 +4,7 @@ import { initializeApp } from 'firebase/app';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { Image } from '../models/image';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -27,9 +28,10 @@ export class UserimagesService {
   constructor(private http: HttpClient) {}
 
   public getImagesOfUser(userId: number): Observable<Image[]> {
+    const apiUrl =`${environment.BACKEND_URL}/users/${userId}/images`;
     return this.http.get<Image[]>(
       // TODO replace this with env var
-      "http://localhost:9090/users/" + userId + "/images"
+     apiUrl
     )
   }
 
@@ -37,9 +39,11 @@ export class UserimagesService {
 	  userId: number,
 	  imageId: number
   ): Observable<Image> {
+    const apiUrl =`${environment.BACKEND_URL}/users/${userId}/images/${imageId}`;
     return this.http.get<Image>(
       // TODO replace with env var
-      "http://localhost:9090/users/" + userId + "/images/" + imageId
+
+   apiUrl
     );
   }
 
@@ -47,8 +51,9 @@ export class UserimagesService {
 	  image: Image,
 	  auth: string
   ): Observable<any> {
+    const apiUrl =`${environment.BACKEND_URL}/users/${image.author.id}/images`;
     return this.http.post<Image>(
-      "http://localhost:9090/users/" + image.author.id + "/images",
+     apiUrl,
       image,
       {
         headers: new HttpHeaders({
