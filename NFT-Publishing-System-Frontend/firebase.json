@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist",
+    "public": "dist/project2-team6-frontend",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -12,5 +12,8 @@
         "destination": "/index.html"
       }
     ]
+  },
+  "database": {
+    "rules": "database.rules.json"
   }
 }

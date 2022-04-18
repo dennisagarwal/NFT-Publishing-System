@@ -6,13 +6,17 @@ This is the full-stack application for an NFT publishing system
 
 ## To-Dos
 - Check code in SonarQube
-- Include logging in logback.xml and write logging logic into backend
-- Integrations test using MockMvc 
-- Finish UI/UX for users gallery
-- Code for deploying ethereum contracts to Ropsten (george)
 - Deploy backend to GCP instance using Docker image
-- Deploy frontend to Firebase
 - Set up Jenkins pipeline to automate building and deployment of backend (build, create docker image, deploy)
+- Powerpoint Presentation:
+  - Meet the Team
+  - The Challenge: How can we enable artists to enter the emerging world of digital assets
+  -  1 User story
+  - Backend design: uses spring, give schema, deployed to GCP
+  - Crypto design: Ethereum Goerli Test Network API, constructs NFT contracts on front end and deploys through Infura
+  - UI/UX design: angular, gallery set-up
+  - Task flow  
+- Set up accounts with test ethers already in their wallets 
 
 ## Tech Stack
 - Spring Framework

@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'project2-team6-frontend';
+  title = 'NFT Publishing Site';
 }
